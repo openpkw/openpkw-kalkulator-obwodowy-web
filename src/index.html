@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>POC Kalkulator wyborczy</title>
+	<meta charset="utf-8">
+    <base href="/" />
+	
+	<!-- build:js(.) js/vendors.min.js-->
+		
+		<!-- bower:js -->
+		<script src="bower_components/jquery/dist/jquery.js"></script>
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/angular-route/angular-route.js"></script>
+		<script src="bower_components/jsbarcode/JsBarcode.js"></script>
+		<script src="bower_components/md5/build/md5.min.js"></script>
+		<script src="bower_components/pdfmake/build/pdfmake.js"></script>
+		<!-- endbower -->
+		
+		<script src="bower_components/jsbarcode/CODE128.js"></script>
+		
+
+	<!-- endbuild -->
+	<!-- build:css css/style.css-->
+		<link rel="stylesheet" type="text/css" href="assets/css/css1.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/css2.css">
+	<!-- endbuild -->
+</head>
+<body ng-app="pocKalkulator">
+<div ng-view></div>
+
+
+ <!-- build:js js/myapp.js -->
+	<script src="app/app.module.js"></script>
+    <script src="app/app.routes.js"></script>
+
+    <script src="app/components/calc/calcController.js"></script>
+    <script src="app/components/calc/calcService.js"></script>
+
+    <script src="app/components/info/infoController.js"></script>
+
+
+    <script src="assets/js/Candidate.js"></script>
+	<script src="assets/js/KlkParser.js"></script>
+	<script src="assets/js/PollingStationData.js"></script>
+	<script src="assets/js/ValidationRules.js"></script> 
+	<script src="assets/js/Sending.js"></script>
+	<script src="assets/js/FillingWithExampleData.js"></script>
+	<script src="assets/js/Printing.js"></script>
+	
+	<script src="assets/js/pdfGeneratorUtils.js"></script>
+	<script src="assets/js/pdfGenerator.js"></script>
+	<script src="assets/js/vfs_fonts.js"></script>
+ <!-- endbuild -->
+
+</body>
+</html>
