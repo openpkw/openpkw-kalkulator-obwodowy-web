@@ -4,6 +4,7 @@ httpProxy = require('http-proxy');
 var serveStatic = require('serve-static');
 var proxy = httpProxy.createProxyServer({});
 
+var port = 8088;
 
 var app = connect();
 
@@ -15,5 +16,5 @@ app.use('/PdfServlet',function(req, res, next){
 	});
 });
  
-http.createServer(app).listen(5050); 
-console.log("listening on port 5050");
+http.createServer(app).listen(port); 
+console.log("listening on port " + port);

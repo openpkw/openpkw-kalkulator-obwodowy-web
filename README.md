@@ -7,7 +7,7 @@
 ```npm install -g bower```
 3. W katalogu /frontend uruchamiamy kolejno komendy:
 ```npm install grunt --save-dev```
-```npm install --save-dev load-grunt-tasks grunt-contrib-copy grunt-contrib-htmlmin grunt-contrib-connect grunt-contrib-clean grunt-contrib-watch grunt-newer grunt-concat-css grunt-contrib-cssmin time-grunt connect-modrewrite grunt-contrib-jshint grunt-contrib-livereload grunt-contrib-watch grunt-filerev grunt-newer grunt-usemin grunt-wiredep grunt-contrib-uglify grunt-connect-proxy grunt-contrib-concat grunt-autoprefixer grunt-bowercopy grunt-browser-sync grunt-contrib-clean jshint-stylish```
+```npm install --save-dev load-grunt-tasks grunt-contrib-copy grunt-contrib-htmlmin grunt-contrib-connect grunt-contrib-clean grunt-contrib-watch grunt-newer grunt-concat-css grunt-contrib-cssmin time-grunt connect-modrewrite grunt-contrib-jshint grunt-contrib-livereload grunt-contrib-watch grunt-filerev grunt-newer grunt-usemin grunt-wiredep grunt-contrib-uglify grunt-connect-proxy grunt-contrib-concat grunt-autoprefixer grunt-bowercopy grunt-browser-sync grunt-contrib-clean jshint-stylish connect http-proxy serve-static grunt-filerev-replace```
 
 ```bower install angular```
 ```bower install angular-route```
