@@ -10,7 +10,7 @@
 - W katalogu */src/frontend* możemy uruchomić następujące taski:<br/>
  ```npm install``` - instaluje wszystkie zależności wymagane w projekcie<br/>
  ```npm run build``` - buduje wersję produkcyjną aplikacji<br/>
-  ```npm server-prod``` - startuje serwer produkcyjny [http://localhost:9000](http://localhost:8088), może być również używany przez osoby chcące tylko pooglądać aplikację<br/>
+  ```npm server-prod``` - startuje serwer produkcyjny [http://localhost:8088](http://localhost:8088), może być również używany przez osoby chcące tylko pooglądać aplikację<br/>
 ```npm server-dev``` - serwer deweloperski [http://localhost:9000](http://localhost:9000), obsługuje livereload (przeglądarka sama się odświeża gdy edytujemy i zapisujemy pliki), uruchamia się szybciej niż. Przed uruchomieniem nie trzeba budować aplikacji ponieważ serwer działa na plikach z katalogu ```src``<br/>
 
 ###Informacje
