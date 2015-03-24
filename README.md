@@ -2,7 +2,7 @@
 - Ściągamy i instalujemy [git'a](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - Ściągamy i instalujemy [nodejs](https://nodejs.org/download/)
 - W katalogu gdzie zainstalowany jest node uruchamiamy:<br/>
-```npm install npm -g```<br/>
+```npm install -g npm ```<br/>
 ```npm install -g grunt-cli```<br/>
 ```npm install -g bower```<br/>
 - Ściągamy projekt kalkulatora ```git clone https://github.com/openpkw/PocKalkulatorWyborczyHtml.git```
