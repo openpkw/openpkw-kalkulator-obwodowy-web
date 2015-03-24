@@ -6,7 +6,8 @@
 ```npm install -g grunt-cli```<br/>
 ```npm install -g bower```<br/>
 - Ściągamy projekt kalkulatora ```git clone https://github.com/openpkw/PocKalkulatorWyborczyHtml.git```
-- W katalogu /src/frontend możemy uruchomić następujące taski:<br/>
+- Przełączamy się na branch *frontend* ```git checkout frontend```
+- W katalogu */src/frontend* możemy uruchomić następujące taski:<br/>
  ```npm install``` - instaluje wszystkie zależności wymagane w projekcie<br/>
  ```npm run build``` - buduje wersję produkcyjną aplikacji<br/>
   ```npm server-prod``` - startuje serwer produkcyjny [http://localhost:9000](http://localhost:8088), może być również używany przez osoby chcące tylko pooglądać aplikację<br/>
