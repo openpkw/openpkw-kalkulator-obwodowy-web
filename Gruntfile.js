@@ -4,7 +4,8 @@
 var config = {
     app: 'src', //app sources
     dist: 'dist', // builded app
-    livereloadPort: 35729
+    livereloadPort: 35729,
+    backendProxy: '52.1.164.93'
 };
 
 module.exports = function(grunt) {
@@ -220,7 +221,6 @@ module.exports = function(grunt) {
                         middlewares = [
                             require('grunt-connect-proxy/lib/utils').proxyRequest,
                             modRewrite(['^[^\\.]*$ /index.html [L]']),
-                            //connect.static('.tmp'),
                             connect().use('/bower_components', connect.static('./bower_components'))
                         ];
 
@@ -236,12 +236,34 @@ module.exports = function(grunt) {
                     },
                 }
             },
+            prod: {
+                options: {
+                    port: 8088,
+                    open: false,
+                    livereload: false,
+                    base: '/',
+
+                    middleware: function(connect,options) {
+                        var middlewares = [];
+
+                        middlewares = [
+                            require('grunt-connect-proxy/lib/utils').proxyRequest,
+                            modRewrite(['^[^\\.]*$ /index.html [L]']),
+                            connect().use('/', connect.static(config.dist))
+                        ];
+
+                        return middlewares;
+
+                    },
+                }
+            },
             proxies: [{
-                    context: '/backend',
-                    host: 'localhost',
+                    context: '/PdfServlet',
+                    host: config.backendProxy,
                     port: 8080,
                     https: false,
-                    xforward: false
+                    xforward: false,
+                    rewrite: {'^/PdfServlet': '/openpkw/PdfServlet'}
                 }]
             
         },
@@ -253,9 +275,10 @@ module.exports = function(grunt) {
     ]);
 
     
-	grunt.registerTask('server', ['configureProxies','connect:livereload','watch']);
+	grunt.registerTask('server-dev', ['configureProxies','connect:livereload','watch']);
+    grunt.registerTask('server-prod', ['configureProxies','connect:prod:keepalive']);
 
-grunt.registerTask('test',['clean','jshint','copy','wiredep','useminPrepare','concat','cssmin','usemin',/*'uglify'*/'htmlmin']);
-grunt.registerTask('test2', ['uglify:app']);
+    grunt.registerTask('test',['clean','jshint','copy','wiredep','useminPrepare','concat','cssmin','usemin',/*'uglify'*/'htmlmin']);
+    grunt.registerTask('test2', ['uglify:app']);
 
 };

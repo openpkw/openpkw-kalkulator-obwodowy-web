@@ -17,7 +17,6 @@
     "grunt-contrib-cssmin": "^0.11.0",
     "grunt-contrib-htmlmin": "^0.3.0",
     "grunt-contrib-jshint": "^0.11.0",
-    "grunt-contrib-livereload": "^0.1.2",
     "grunt-contrib-uglify": "^0.8.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-filerev": "^2.2.0",
@@ -33,6 +32,19 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+  	"postinstall": "bower install",
+  	
+    "prebuild" : "npm install",
+    "build": "grunt build",
+
+    "preserver-prod" : "npm run build",
+    "server-prod": "grunt server-prod",
+    
+    "server-dev": "grunt server-dev"
+  },
+  "repository":{
+	"type": "git",
+	"url" : "https://github.com/openpkw/PocKalkulatorWyborczyHtml.git"
   }
 }
