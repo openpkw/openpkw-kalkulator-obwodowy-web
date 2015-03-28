@@ -267,6 +267,23 @@ module.exports = function(grunt) {
                 }]
             
         },
+
+        scp: {
+            options: {
+                host: '52.4.122.192',
+                username: 'openpkw-cd',
+                privateKey: require('fs').readFileSync((process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE)+'/.ssh/sc-ec2-openpkw-apache-cd.pem'),
+                tryKeyboard: true
+            },
+            dist: {
+                files: [{
+                    cwd: './dist',
+                    src: '**/*',
+                    filter: 'isFile',
+                    dest: '/www'
+                }]
+            },
+        }
     });
 
 	grunt.registerTask('default', ['watch']);
@@ -280,5 +297,8 @@ module.exports = function(grunt) {
 
     grunt.registerTask('test',['clean','jshint','copy','wiredep','useminPrepare','concat','cssmin','usemin',/*'uglify'*/'htmlmin']);
     grunt.registerTask('test2', ['uglify:app']);
+
+    grunt.loadNpmTasks('grunt-scp');
+    grunt.registerTask('deploy', ['scp']);
 
 };
