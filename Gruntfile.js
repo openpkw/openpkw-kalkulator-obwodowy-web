@@ -272,7 +272,7 @@ module.exports = function(grunt) {
             options: {
                 host: '52.4.122.192',
                 username: 'openpkw-cd',
-                privateKey: require('fs').readFileSync((process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE)+'/.ssh/sc-ec2-openpkw-apache-cd.pem'),
+                privateKey: require('fs').readFileSync((process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE)+'/.ssh/openpkw-jenkins-cd.pem'),
                 tryKeyboard: true
             },
             dist: {
