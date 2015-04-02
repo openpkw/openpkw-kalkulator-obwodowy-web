@@ -1,9 +1,10 @@
 <div x-ng-controller="CalcController">
 	<form id="theForm" action="PdfServlet" method="post">
-	<h1>Kalkulator OpenPKW - Komisja Obwodowa</h1>
+	<h1>Kalkulator OpenPKW &mdash; Prototyp &mdash; Komisja Obwodowa</h1>
 	<input type="hidden" id="liczba_wyborcow" name="liczba_wyborcow" value="">
 	<input type="hidden" id="pdfMethod" name="pdfMethod"/>
-	<p class="info">Wersja 12. Frontend jako osobna aplikacja.</p>
+	<div style="background-color: #f0f0f0; margin-bottom: 5px; padding: 5px; border: 1px dashed #d0d0d0">
+	<p class="info">Wersja 2015-04-02_01.</p>
 	<div>
 		<label for="wyborWojewodztwa" style="width: 150px; display: inline-block">Wybierz wyjewództwo</label>
         <select id="wyborWojewodztwa" style="width: 200px" 
@@ -29,16 +30,15 @@
                 x-ng-options="'Obwód nr '+p.nrObwodu+': '+p.siedzibaKomisjiObwodowej for p in m.pollingStationsData"
                 x-ng-model="m.pollingStation"></select>
 	</div>		
-	<hr>
+	<br/>
 	<button type="button" onClick="fill()">Wypełnij formularz przykładowymi danymi</button>
-	<hr>
 	<button type="button" onClick="validate()">Sprawdź formularz</button>
 	<button type="button" onClick="send()">Wyślij formularz</button>
-	<button type="button" onClick="printForm(1); return false;">Wydrukuj formularz (metoda 1)</button>
-	<button type="button" onClick="printForm(2); return false;">Wydrukuj formularz (metoda 2)</button>
-	<button type="button" onClick="printForm(3); return false;">Wydrukuj formularz (metoda 3)</button>
+<!--	<button type="button" onClick="printForm(1); return false;">Wydrukuj formularz (metoda 1)</button>-->
+	<button type="button" onClick="printForm(2); return false;">Wydrukuj formularz</button>
+<!--	<button type="button" onClick="printForm(3); return false;">Wydrukuj formularz (metoda 3)</button>-->
 
-	<hr>
+	</div>
 
 	<table class="with_borders">
 		<tr>
