@@ -1619,94 +1619,103 @@
 				<slownik/>
 				<itaNrWersji xmlns:k="urn:klk" xmlns:ko="urn:klk-obd" xmlns:lst="urn:lista-linkow-do-czesci-klk">-2</itaNrWersji>
 				<kandydat kdtId="db965de2-066f-48cf-b0bb-1e5e30112695" kdtNumerNaKarcie="1" kwyId="ae4e1769-2eed-4883-8d76-adbe5b1c755f" status="A">
-					<imiona>Marek</imiona>
-					<nazwisko>JUREK</nazwisko>
-					<przydomek/>
-					<prefix/>
-					<plec>M</plec>
-					<pesel-md5>4fade26232455f38d53c413bddaf84f2</pesel-md5>
-					<kwyNazwa>Komitet wyborczy kandydata na Prezydenta Rzeczypospolitej Polskiej Marka Jurka</kwyNazwa>
-				</kandydat>
-				<kandydat kdtId="6a772bac-2b71-4ae1-8d3d-737e2534688b" kdtNumerNaKarcie="2" kwyId="8bd3f665-ddaf-47e7-bed5-5de6b6eab0b5" status="A">
-					<imiona>Jarosław Aleksander</imiona>
-					<nazwisko>KACZYŃSKI</nazwisko>
-					<przydomek/>
-					<prefix/>
-					<plec>M</plec>
-					<pesel-md5>9a1f24a5ab606b57e1ddf4415f949cef</pesel-md5>
-					<kwyNazwa>Komitet wyborczy kandydata na Prezydenta Rzeczypospolitej Polskiej Jarosława Kaczyńskiego</kwyNazwa>
-				</kandydat>
-				<kandydat kdtId="dc8a87d5-21ee-4111-a0f0-5189a6416d53" kdtNumerNaKarcie="3" kwyId="3ca02e10-aca5-4cc5-867b-dfc77827c055" status="A">
-					<imiona>Bronisław Maria</imiona>
+					<imiona>Bronisław</imiona>
 					<nazwisko>KOMOROWSKI</nazwisko>
 					<przydomek/>
 					<prefix/>
 					<plec>M</plec>
-					<pesel-md5>2825f9f5a925e167a419440f3fa7de71</pesel-md5>
+					<pesel-md5>4fade26232455f38d53c413bddaf84f2</pesel-md5>
 					<kwyNazwa>Komitet wyborczy kandydata na Prezydenta Rzeczypospolitej Polskiej Bronisława Komorowskiego</kwyNazwa>
 				</kandydat>
+				<kandydat kdtId="6a772bac-2b71-4ae1-8d3d-737e2534688b" kdtNumerNaKarcie="2" kwyId="8bd3f665-ddaf-47e7-bed5-5de6b6eab0b5" status="A">
+					<imiona>Andrzej</imiona>
+					<nazwisko>DUDA</nazwisko>
+					<przydomek/>
+					<prefix/>
+					<plec>M</plec>
+					<pesel-md5>9a1f24a5ab606b57e1ddf4415f949cef</pesel-md5>
+					<kwyNazwa>Komitet wyborczy kandydata na Prezydenta Rzeczypospolitej Polskiej Andrzeja Dudy</kwyNazwa>
+				</kandydat>
+				<kandydat kdtId="dc8a87d5-21ee-4111-a0f0-5189a6416d53" kdtNumerNaKarcie="3" kwyId="3ca02e10-aca5-4cc5-867b-dfc77827c055" status="A">
+					<imiona>Magdalena</imiona>
+					<nazwisko>OGÓREK</nazwisko>
+					<przydomek/>
+					<prefix/>
+					<plec>M</plec>
+					<pesel-md5>2825f9f5a925e167a419440f3fa7de71</pesel-md5>
+					<kwyNazwa>Komitet wyborczy kandydatki na Prezydenta Rzeczypospolitej Polskiej Magdaleny Ogórek</kwyNazwa>
+				</kandydat>
 				<kandydat kdtId="8c6bd8eb-c195-47f2-9533-ecfe65815de4" kdtNumerNaKarcie="4" kwyId="8fe719eb-0d0f-4635-8095-b9e9f9b27737" status="A">
-					<imiona>Janusz Ryszard</imiona>
-					<nazwisko>KORWIN-MIKKE</nazwisko>
+					<imiona>Adam</imiona>
+					<nazwisko>JARUBAS</nazwisko>
 					<przydomek/>
 					<prefix/>
 					<plec>M</plec>
 					<pesel-md5>d590f6d4313c87cb4c5e722ed97bf611</pesel-md5>
-					<kwyNazwa>Komitet wyborczy kandydata na Prezydenta Rzeczypospolitej Polskiej Janusza Ryszarda Korwin-Mikke</kwyNazwa>
+					<kwyNazwa>Komitet wyborczy kandydata na Prezydenta Rzeczypospolitej Polskiej Adama Jarubasa</kwyNazwa>
 				</kandydat>
 				<kandydat kdtId="62f7d285-e44e-433a-bdb9-d71825c9499c" kdtNumerNaKarcie="5" kwyId="cdd5b960-53c0-43e5-bf87-9795e1401ffd" status="A">
-					<imiona>Andrzej Zbigniew</imiona>
-					<nazwisko>LEPPER</nazwisko>
+					<imiona>Janusz</imiona>
+					<nazwisko>PALIKOT</nazwisko>
 					<przydomek/>
 					<prefix/>
 					<plec>M</plec>
 					<pesel-md5>6a04aa0c33428882bb07896206a42aa0</pesel-md5>
-					<kwyNazwa>Komitet wyborczy kandydata na Prezydenta Rzeczypospolitej Polskiej Andrzeja Zbigniewa Leppera</kwyNazwa>
+					<kwyNazwa>Komitet wyborczy kandydata na Prezydenta Rzeczypospolitej Polskiej Janusza Palikota</kwyNazwa>
 				</kandydat>
 				<kandydat kdtId="5ac02c7d-3ad4-4b1f-bcee-c304a506410c" kdtNumerNaKarcie="6" kwyId="a28f337a-63ab-4c7b-affd-7c29b16f7bce" status="A">
-					<imiona>Kornel Andrzej</imiona>
-					<nazwisko>MORAWIECKI</nazwisko>
+					<imiona>Janusz</imiona>
+					<nazwisko>KORWIN-MIKKE</nazwisko>
 					<przydomek/>
 					<prefix/>
 					<plec>M</plec>
 					<pesel-md5>0da5a51b84ba5888ffccd6aef6417012</pesel-md5>
-					<kwyNazwa>Komitet wyborczy kandydata na Prezydenta Rzeczypospolitej Polskiej Kornela Morawieckiego</kwyNazwa>
+					<kwyNazwa>Komitet wyborczy kandydata na Prezydenta Rzeczypospolitej Polskiej Janusza Korwin-Mikke</kwyNazwa>
 				</kandydat>
-				<kandydat kdtId="2f45d1fa-6393-4077-af06-251d7b3a4ec3" kdtNumerNaKarcie="7" kwyId="01044e0c-35e9-4e1e-8676-e2b188b90746" status="A">
-					<imiona>Grzegorz Bernard</imiona>
-					<nazwisko>NAPIERALSKI</nazwisko>
-					<przydomek/>
-					<prefix/>
-					<plec>M</plec>
-					<pesel-md5>02415fe7d020e6373e6b80581b0f9f81</pesel-md5>
-					<kwyNazwa>Komitet wyborczy kandydata na Prezydenta Rzeczypospolitej Polskiej Grzegorza Napieralskiego</kwyNazwa>
-				</kandydat>
-				<kandydat kdtId="5dd07f51-0808-4d14-8902-644041e7030e" kdtNumerNaKarcie="8" kwyId="98f2e13d-dd2e-45c9-a0bd-ce09f152bee7" status="A">
-					<imiona>Andrzej Marian</imiona>
-					<nazwisko>OLECHOWSKI</nazwisko>
+				<kandydat kdtId="5dd07f51-0808-4d14-8902-644041e7030e" kdtNumerNaKarcie="7" kwyId="98f2e13d-dd2e-45c9-a0bd-ce09f152bee7" status="A">
+					<imiona>Jacek</imiona>
+					<nazwisko>WILK</nazwisko>
 					<przydomek/>
 					<prefix/>
 					<plec>M</plec>
 					<pesel-md5>4eb4875a22b1f129440628ccf0c9f520</pesel-md5>
-					<kwyNazwa>Komitet wyborczy kandydata na Prezydenta Rzeczypospolitej Polskiej Andrzeja Olechowskiego</kwyNazwa>
+					<kwyNazwa>Komitet wyborczy kandydata na Prezydenta Rzeczypospolitej Polskiej Jacka Wilka</kwyNazwa>
 				</kandydat>
-				<kandydat kdtId="70917e74-d90f-4334-8985-d26b033738f8" kdtNumerNaKarcie="9" kwyId="40b44809-e007-4f23-9423-6a12c277c28b" status="A">
-					<imiona>Waldemar</imiona>
-					<nazwisko>PAWLAK</nazwisko>
+				<kandydat kdtId="70917e74-d90f-4334-8985-d26b033738f8" kdtNumerNaKarcie="8" kwyId="40b44809-e007-4f23-9423-6a12c277c28b" status="A">
+					<imiona>Marian</imiona>
+					<nazwisko>KOWALSKI</nazwisko>
 					<przydomek/>
 					<prefix/>
 					<plec>M</plec>
 					<pesel-md5>66ff5da5dc9d64229e21b96549cd0f02</pesel-md5>
-					<kwyNazwa>Komitet wyborczy kandydata na Prezydenta Rzeczypospolitej Polskiej Waldemara Pawlaka</kwyNazwa>
+					<kwyNazwa>Komitet wyborczy kandydata na Prezydenta Rzeczypospolitej Polskiej Mariana Kowalskiego</kwyNazwa>
 				</kandydat>
-				<kandydat kdtId="07c57de6-cfe6-4e39-b85f-981ea8b96d90" kdtNumerNaKarcie="10" kwyId="741a365c-7c7c-43cc-ad18-63d8ccf1de6a" status="A">
-					<imiona>Bogusław Zbigniew</imiona>
-					<nazwisko>ZIĘTEK</nazwisko>
+				<kandydat kdtId="07c57de6-cfe6-4e39-b85f-981ea8b96d90" kdtNumerNaKarcie="9" kwyId="741a365c-7c7c-43cc-ad18-63d8ccf1de6a" status="A">
+					<imiona>Paweł</imiona>
+					<nazwisko>TANAJNO</nazwisko>
 					<przydomek/>
 					<prefix/>
 					<plec>M</plec>
 					<pesel-md5>cf16be9fee577b55aa112ab9cc897e0d</pesel-md5>
-					<kwyNazwa>Komitet wyborczy kandydata na Prezydenta Rzeczypospolitej Polskiej Bogusława Zbigniewa Ziętka</kwyNazwa>
+					<kwyNazwa>Komitet wyborczy kandydata na Prezydenta Rzeczypospolitej Polskiej Pawła Tanajno</kwyNazwa>
+				</kandydat>
+				<kandydat kdtId="2f45d1fa-6393-4077-af06-251d7b3a4ec3" kdtNumerNaKarcie="10" kwyId="01044e0c-35e9-4e1e-8676-e2b188b90746" status="A">
+					<imiona>Paweł</imiona>
+					<nazwisko>KUKIZ</nazwisko>
+					<przydomek/>
+					<prefix/>
+					<plec>M</plec>
+					<pesel-md5>02415fe7d020e6373e6b80581b0f9f81</pesel-md5>
+					<kwyNazwa>Komitet wyborczy kandydata na Prezydenta Rzeczypospolitej Polskiej Pawła Kukuiza</kwyNazwa>
+				</kandydat>			
+				<kandydat kdtId="2f45d1fa-6393-4077-af06-251d7b3a4ec4" kdtNumerNaKarcie="11" kwyId="01044e0c-35e9-4e1e-8676-e2b188b90748" status="A">
+					<imiona>Grzegorz</imiona>
+					<nazwisko>BRAUN</nazwisko>
+					<przydomek/>
+					<prefix/>
+					<plec>M</plec>
+					<pesel-md5>02415fe7d020e6373e6b80581b0f9f81</pesel-md5>
+					<kwyNazwa>Komitet wyborczy kandydata na Prezydenta Rzeczypospolitej Polskiej Grzegorza Brauna</kwyNazwa>
 				</kandydat>
 			</prezydent>
 		</jednostka>
