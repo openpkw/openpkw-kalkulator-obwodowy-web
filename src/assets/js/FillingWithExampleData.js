@@ -35,6 +35,7 @@ function fill() {
 	$('#kandydat_8_liczba_glosow_waznych').val('23');
 	$('#kandydat_9_liczba_glosow_waznych').val('457');
 	$('#kandydat_10_liczba_glosow_waznych').val('4');
+	$('#kandydat_11_liczba_glosow_waznych').val('34');
 	$('#suma_glosow_waznych').val('1237');
 	$('#uwagi_3_15').val('Brak uwag');
 	$('#uwagi_3_16').val('Brak uwag');
