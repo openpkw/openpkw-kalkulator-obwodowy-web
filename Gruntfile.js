@@ -5,7 +5,7 @@ var config = {
     app: 'src', //app sources
     dist: 'dist', // builded app
     livereloadPort: 35729,
-    backendProxy: '52.1.164.93'
+    backendProxy: 'localhost'
 };
 
 module.exports = function(grunt) {
@@ -256,12 +256,12 @@ module.exports = function(grunt) {
                 }
             },
             proxies: [{
-                    context: '/PdfServlet',
+                    context: '/backend/service/protocol',
                     host: config.backendProxy,
                     port: 8080,
                     https: false,
                     xforward: false,
-                    rewrite: {'^/PdfServlet': '/openpkw/PdfServlet'}
+                    rewrite: {'^/backend/service/protocol': '/backend/service/protocol'}
                 }]
             
         },
