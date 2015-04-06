@@ -184,9 +184,7 @@ module.exports = function(grunt) {
                     'angular.route.js':'angular-route/angular-route.min.js',
 					'jquery.js':'jquery/dist/jquery.min.js',
 					'JsBarcode.js' : 'jsbarcode/JsBarcode.js',
-					'md5.js': 'md5/build/md5.min.js',
-					'pdfmake.js' : 'pdfmake/build/pdfmake.min.js'
-                    
+					'md5.js': 'md5/build/md5.min.js'
 				}
 			},
             /*css:{
