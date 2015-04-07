@@ -8,6 +8,18 @@ var config = {
     backendProxy: '91.250.114.134'
 };
 
+try {
+  var scpPrivateKey = require('fs').readFileSync((process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE)+'/.ssh/openpkw-jenkins-cd.pem')
+} catch (err) {
+  
+  if (err.code !== 'ENOENT') throw e;
+
+    console.warn('[WARNING!!] scpPrivateKey not found, deploy task has not been registered');
+    scpPrivateKey = false;
+  // Handle a file-not-found error
+}
+
+
 module.exports = function(grunt) {
 
     require('load-grunt-tasks')(grunt); //automatyczne ladowanie modulow grunt
@@ -261,7 +273,7 @@ module.exports = function(grunt) {
                     port: 8080,
                     https: false,
                     xforward: false,
-                    rewrite: {'^/backend/service/protocol': '/poc-backend/service/protocol'}
+                    rewrite: {'^(\/backend\/service\/protocol[/]{0,1})(.*)$': '/poc-backend/service/protocol/$2'}
                 }]
             
         },
@@ -270,7 +282,7 @@ module.exports = function(grunt) {
             options: {
                 host: '52.4.122.192',
                 username: 'openpkw-cd',
-                privateKey: require('fs').readFileSync((process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE)+'/.ssh/openpkw-jenkins-cd.pem'),
+                privateKey: scpPrivateKey,
                 tryKeyboard: true
             },
             dist: {
@@ -296,7 +308,9 @@ module.exports = function(grunt) {
     grunt.registerTask('test',['clean','jshint','copy','wiredep','useminPrepare','concat','cssmin','usemin',/*'uglify'*/'htmlmin']);
     grunt.registerTask('test2', ['uglify:app']);
 
-    grunt.loadNpmTasks('grunt-scp');
-    grunt.registerTask('deploy', ['scp']);
+    if (scpPrivateKey !== false){
+        grunt.registerTask('deploy', ['scp']);    
+    } 
+    
 
 };
