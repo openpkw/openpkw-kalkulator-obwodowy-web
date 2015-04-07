@@ -5,7 +5,7 @@ function generateProtocol() {
 	$.ajax({
 		type: 'POST',
 		url: '/backend/service/protocol',
-		headers: {"Content-Type": "application/json"},
+		headers: {'Content-Type': 'application/json'},
 		async: false,
 		data: '{'+
 			'"komisja": {'+
@@ -18,7 +18,14 @@ function generateProtocol() {
 			'}'+
 		'}',
     	success: function(data, status) {
-    		alert(data);
+			var pom = document.createElement('a');
+  			pom.setAttribute('href', 'data:application,' + encodeURIComponent(data));
+  			pom.setAttribute('download', 'elemelek.pdf');
+			pom.style.display = 'none';
+  			document.body.appendChild(pom);
+
+  			pom.click();
+  			document.body.removeChild(pom);
     	}
     });
 }
