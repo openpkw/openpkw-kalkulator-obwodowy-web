@@ -5,7 +5,7 @@ function generateProtocol() {
 	$.ajax({
 		type: 'POST',
 		url: '/backend/service/protocol',
-		headers: {"Content-Type": "application/json"},
+		headers: {'Content-Type': 'application/json'},
 		async: false,
 		data: '{'+
 			'"komisja": {'+
@@ -18,7 +18,7 @@ function generateProtocol() {
 			'}'+
 		'}',
     	success: function(data, status) {
-    		alert(data);
+    		alert('Data length: ' + data.length);
     	}
     });
 }
