@@ -5,7 +5,7 @@ var config = {
     app: 'src', //app sources
     dist: 'dist', // builded app
     livereloadPort: 35729,
-    backendProxy: 'localhost'
+    backendProxy: '52.1.164.93'
 };
 
 module.exports = function(grunt) {
@@ -261,7 +261,7 @@ module.exports = function(grunt) {
                     port: 8080,
                     https: false,
                     xforward: false,
-                    rewrite: {'^/backend/service/protocol': '/backend/service/protocol'}
+                    rewrite: {'^/backend/service/protocol': '/openpkw/service/protocol'}
                 }]
             
         },
