@@ -261,7 +261,7 @@ module.exports = function(grunt) {
                     port: 8080,
                     https: false,
                     xforward: false,
-                    rewrite: {'^/backend/service/protocol': '/backend/service/protocol'}
+                    rewrite: {'^/backend/service/protocol': '/openpkw/service/protocol'}
                 }]
             
         },
