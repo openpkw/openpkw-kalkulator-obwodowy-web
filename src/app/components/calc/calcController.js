@@ -1,6 +1,6 @@
 /*global app,md5*/
 'use strict';
-app.controller('CalcController', ['$scope', 'calcService', function ($scope, calcService) {
+app.controller('CalcController', ['$scope', '$http', '$window', 'calcService', function ($scope, $http, $window, calcService) {
     
     var m = {
         voivodship: null,
@@ -11,6 +11,32 @@ app.controller('CalcController', ['$scope', 'calcService', function ($scope, cal
         pollingStation: null
     };
     $scope.m = m;
+
+    $scope.showAsPdf = function () {
+        var exampleData = {
+            komisja: {
+                kodTerytorialnyGminy: '180801',
+                numerObwoduGlosowania: '5',
+                siedzibaObwodowejKomisjiWyborczej: 'Gimnazjum Miejskie im. Władysława Jagiełły, Leżajsk ul. Skłodowskiej 8, 37-300 Leżajsk',
+                gminaDzielnica: 'm. Leżajsk',
+                powiat: 'leżajski',
+                wojewodztwo: 'podkarpackie'
+            }
+        };
+
+        $http.post('http://91.250.114.134:8080/poc-backend/service/protocol', exampleData, {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            responseType: 'arraybuffer'
+        }).success(function (data) {
+            var blob = new Blob([data], {type: 'application/pdf'});
+            var url = URL.createObjectURL(blob);
+            $window.open(url);
+        }).error(function () {
+            $window.alert('Nie udało się wygenerować PDFa.');
+        });
+    };
 
     var ctrl = {};
     $scope.ctrl = ctrl;
