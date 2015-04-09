@@ -9,16 +9,16 @@ var config = {
 };
 
 try {
-  var scpPrivateKey = require('fs').readFileSync((process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE)+'/.ssh/openpkw-jenkins-cd.pem')
+    var scpPrivateKey = require('fs').readFileSync((process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE)+'/.ssh/openpkw-jenkins-cd.pem');
 } catch (err) {
-  
-  if (err.code !== 'ENOENT') throw e;
+    if (err.code !== 'ENOENT') {
+        throw err;
+    }
 
     console.warn('[WARNING!!] scpPrivateKey not found, deploy task has not been registered');
     scpPrivateKey = false;
   // Handle a file-not-found error
 }
-
 
 module.exports = function(grunt) {
 
