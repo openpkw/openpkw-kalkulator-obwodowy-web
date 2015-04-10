@@ -17,9 +17,9 @@ module.exports = function (config) {
             'bower_components/angular-route/angular-route.js',
             'bower_components/angular-mocks/angular-mocks.js',
             'bower_components/jquery/dist/jquery.js',
+            'src/assets/**/*.js',
             'src/app/**/*.js',
-            'tests/specs/routesSpec.js',
-            // 'tests/specs/**/*Spec.js'
+            'tests/specs/**/*.js'
         ],
 
         // list of files to exclude
