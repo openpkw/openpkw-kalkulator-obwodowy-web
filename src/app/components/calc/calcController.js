@@ -1,8 +1,7 @@
 /*global app,md5*/
 'use strict';
-app.controller('CalcController', ['$scope', '$http', '$window', 
+app.controller('CalcController', ['$scope', '$http', '$window',
         'calcService', function ($scope, $http, $window, calcService) {
-    
     var m = {
         voivodship: null,
         district: null,
@@ -143,7 +142,7 @@ app.controller('CalcController', ['$scope', '$http', '$window',
 
     };
 
-    $('#barcode').JsBarcode(md5('OPENPKW PROOF OF CONCEPT'),{
+    $('#barcode').JsBarcode(md5('OPENPKW PROOF OF CONCEPT'), {
                 width:  1,
                 height: 25,
                 quite: 5,

@@ -1,6 +1,4 @@
 /*globals app*/
 'use strict';
-app.controller('InfoController', function($scope,$http) {
-   
-})
-;
+app.controller('InfoController', function($scope, $http) {
+});
