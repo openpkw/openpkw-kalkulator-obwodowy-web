@@ -12,7 +12,7 @@ describe('Routes', function () {
         expect(route.routes['/'].templateUrl).toBe('app/components/calc/calcView.html');
     });
 
-    it('Should use CalcController and calcView.html on "/info"', function () {
+    it('Should use InfoController and infoView.html on "/info"', function () {
         expect(route.routes['/info'].controller).toBe('InfoController');
         expect(route.routes['/info'].templateUrl).toBe('app/components/info/infoView.html');
     });
