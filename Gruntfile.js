@@ -5,7 +5,12 @@ var config = {
     app: 'src', //app sources
     dist: 'dist', // builded app
     livereloadPort: 35729,
-    backendProxy: '91.250.114.134'
+    backendProxy: '52.1.164.93'   // JBoss u Sebastiana (podstawowy backend)
+//    backendProxy: '91.250.114.134'  // WebLogic u Adama (dodatkowy backend)
+
+// Uwaga, zmieniając IP trzeba też zmienić ścieżkę w sekcji rewrite konfiguracji proxies dalej w tym pliku
+// Na serwerze Sebastiana jest to /openpkw/service/protocol
+// Na serwerze Adama jest to /poc-backend/service/protocol
 };
 
 try {
@@ -273,7 +278,7 @@ module.exports = function(grunt) {
                     port: 8080,
                     https: false,
                     xforward: false,
-                    rewrite: {'^(\/backend\/service\/protocol[/]{0,1})(.*)$': '/poc-backend/service/protocol/$2'}
+                    rewrite: {'^(\/backend\/service\/protocol[/]{0,1})(.*)$': '/openpkw/service/protocol/$2'}
                 }]
             
         },
