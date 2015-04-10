@@ -82,7 +82,7 @@ module.exports = function(grunt) {
             },
         },
         jscs: {
-            src: [
+            all: [
                 'Gruntfile.js',
                 '<%= config.app %>/assets/js/{,*/}{,*/}{,*/}{,*/}*.js',
                 '<%= config.app %>/app/components/{,*/}{,*/}{,*/}{,*/}*.js',
