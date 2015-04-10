@@ -1,6 +1,7 @@
 /*global app,md5*/
 'use strict';
-app.controller('CalcController', ['$scope', '$http', '$window', 'calcService', function ($scope, $http, $window, calcService) {
+app.controller('CalcController', ['$scope', '$http', '$window', 
+        'calcService', function ($scope, $http, $window, calcService) {
     
     var m = {
         voivodship: null,
@@ -17,7 +18,8 @@ app.controller('CalcController', ['$scope', '$http', '$window', 'calcService', f
             komisja: {
                 kodTerytorialnyGminy: '180801',
                 numerObwoduGlosowania: '5',
-                siedzibaObwodowejKomisjiWyborczej: 'Gimnazjum Miejskie im. Władysława Jagiełły, Leżajsk ul. Skłodowskiej 8, 37-300 Leżajsk',
+                siedzibaObwodowejKomisjiWyborczej: 'Gimnazjum Miejskie im. Władysława Jagiełły, ' +
+                    'Leżajsk ul. Skłodowskiej 8, 37-300 Leżajsk',
                 gminaDzielnica: 'm. Leżajsk',
                 powiat: 'leżajski',
                 wojewodztwo: 'podkarpackie'

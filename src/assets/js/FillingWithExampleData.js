@@ -25,6 +25,10 @@ function fill() {
 	$('#pole_2_11').val('56');
 	$('#pole_2_12').val('45');
 	$('#pole_2_13').val('6');
+	fill2();
+}
+
+function fill2(){
 	$('#kandydat_1_liczba_glosow_waznych').val('7');
 	$('#kandydat_2_liczba_glosow_waznych').val('2');
 	$('#kandydat_3_liczba_glosow_waznych').val('47');
@@ -40,7 +44,8 @@ function fill() {
 	$('#uwagi_3_15').val('Brak uwag');
 	$('#uwagi_3_16').val('Brak uwag');
 	$('#uwagi_3_17').val('Brak uwag');
-	$('#uwagi_3_18').val('Wydano zarządzenie dotyczące psa szczekającego pod oknem komisji. Pies został zaopatrzony w sporą porcją jedzenia i przestał szczekać.');
+	$('#uwagi_3_18').val('Wydano zarządzenie dotyczące psa szczekającego pod oknem komisji.'+
+		' Pies został zaopatrzony w sporą porcją jedzenia i przestał szczekać.');
 	$('#uwagi_3_19').val('Brak zarzutów');
 	$('#uwagi_3_20').val('Brak zarzutów');
 	$('#uwagi_3_21').val('Brak uwag');

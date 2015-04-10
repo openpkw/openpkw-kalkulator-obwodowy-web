@@ -1,4 +1,4 @@
-/*global alert*/
+/*global alert, jQuery*/
 'use strict';
 
 function formatXml(xml) {

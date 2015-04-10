@@ -20,7 +20,8 @@ OpenPKW.KlkParser = {
 	        xmlDoc = $.parseXML(xmlDoc);
 	    }
 
-		var numberOfPollingStations = OpenPKW.KlkParser.getNumberOfNodes(xmlDoc, 'count(/kalkulator/akcja/jednostka/jednostka/jednostka/obwod)');
+		var numberOfPollingStations = OpenPKW.KlkParser.getNumberOfNodes(xmlDoc, 
+							'count(/kalkulator/akcja/jednostka/jednostka/jednostka/obwod)');
 		var result = [];
 		for (var idx = 0; idx < numberOfPollingStations; idx++) {
 			var pollingStationData = OpenPKW.KlkParser.loadPollingStationData(xmlDoc, idx+1);
@@ -35,16 +36,22 @@ OpenPKW.KlkParser = {
 
 		var xml = xmlDoc;
 		var kodGminy = OpenPKW.KlkParser.getAttribute(xml, '/kalkulator/akcja/jednostka/jednostka/jednostka/@jnsKod');
-		var nrObwodu = OpenPKW.KlkParser.getAttribute(xml, '/kalkulator/akcja/jednostka/jednostka/jednostka/obwod['+idx+']/@obdNumer');
-		var siedzibaKomisjiObwodowej = OpenPKW.KlkParser.getAttribute(xml, '/kalkulator/akcja/jednostka/jednostka/jednostka/obwod['+idx+']/obdAdres');
+		var nrObwodu = OpenPKW.KlkParser.getAttribute(xml, '/kalkulator/akcja/jednostka/jednostka/jednostka/obwod['+
+			idx+']/@obdNumer');
+		var siedzibaKomisjiObwodowej = OpenPKW.KlkParser.getAttribute(xml, '/kalkulator/akcja/jednostka/jednostka/'+
+			'jednostka/obwod['+idx+']/obdAdres');
 		var gmina = OpenPKW.KlkParser.getAttribute(xml, '/kalkulator/akcja/jednostka/jednostka/jednostka/jnsNazwa');
 		var powiat = '?';
 		var wojewodztwo = OpenPKW.KlkParser.getAttribute(xml, '/kalkulator/akcja/jednostka/jednostka/jnsNazwa');
-		var numerKomisjiOkregowej = OpenPKW.KlkParser.getAttribute(xml, '/kalkulator/akcja/jednostka/jednostka/jednostka/organWyborczy/slownik/wpis[@typ=\'NUMER\']');
-		var siedzibaKomisjiOkregowej = OpenPKW.KlkParser.getAttribute(xml, '/kalkulator/akcja/jednostka/jednostka/jednostka/organWyborczy/slownik/wpis[@typ=\'MIEJSCOWNIK_W\']');
-		var liczbaWyborcow = OpenPKW.KlkParser.getAttribute(xml, '/kalkulator/akcja/jednostka/jednostka/jednostka/obwod['+idx+']/obwodPzt/@oodLiczbaWyborcow');
+		var numerKomisjiOkregowej = OpenPKW.KlkParser.getAttribute(xml, '/kalkulator/akcja/jednostka/jednostka'+
+			'/jednostka/organWyborczy/slownik/wpis[@typ=\'NUMER\']');
+		var siedzibaKomisjiOkregowej = OpenPKW.KlkParser.getAttribute(xml, '/kalkulator/akcja/jednostka/'+
+			'jednostka/jednostka/organWyborczy/slownik/wpis[@typ=\'MIEJSCOWNIK_W\']');
+		var liczbaWyborcow = OpenPKW.KlkParser.getAttribute(xml, '/kalkulator/akcja/jednostka/jednostka'+
+			'/jednostka/obwod['+idx+']/obwodPzt/@oodLiczbaWyborcow');
 
-		result = new OpenPKW.PollingStationData(kodGminy, nrObwodu, siedzibaKomisjiObwodowej, gmina, powiat, wojewodztwo, numerKomisjiOkregowej, siedzibaKomisjiOkregowej, liczbaWyborcow);
+		result = new OpenPKW.PollingStationData(kodGminy, nrObwodu, siedzibaKomisjiObwodowej, gmina, powiat,
+		 						wojewodztwo, numerKomisjiOkregowej, siedzibaKomisjiOkregowej, liczbaWyborcow);
 		return result;
 	},
 

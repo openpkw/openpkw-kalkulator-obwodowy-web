@@ -2,7 +2,8 @@
 
 var OpenPKW = OpenPKW || {};
 
-OpenPKW.PollingStationData = function(kodGminy, nrObwodu, siedzibaKomisjiObwodowej, gmina, powiat, wojewodztwo, numerKomisjiOkregowej, siedzibaKomisjiOkregowej, liczbaWyborcow) {
+OpenPKW.PollingStationData = function(kodGminy, nrObwodu, siedzibaKomisjiObwodowej, gmina, powiat,
+					 wojewodztwo, numerKomisjiOkregowej, siedzibaKomisjiOkregowej, liczbaWyborcow) {
 	this.kodGminy = kodGminy;
 	this.nrObwodu = nrObwodu;
 	this.siedzibaKomisjiObwodowej = siedzibaKomisjiObwodowej;

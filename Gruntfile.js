@@ -14,7 +14,8 @@ var config = {
 };
 
 try {
-    var scpPrivateKey = require('fs').readFileSync((process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE)+'/.ssh/openpkw-jenkins-cd.pem');
+    var scpPrivateKey = require('fs').readFileSync((process.env.HOME || 
+                                process.env.HOMEPATH || process.env.USERPROFILE)+'/.ssh/openpkw-jenkins-cd.pem');
 } catch (err) {
     if (err.code !== 'ENOENT') {
         throw err;
@@ -73,8 +74,8 @@ module.exports = function(grunt) {
             all: {
                 src: [
                     'Gruntfile.js',
-                    '<%= config.app %>/assets/js/{,*/}*.js',
-                    '<%= config.app %>/app/components/{,*/}*.js',
+                    '<%= config.app %>/assets/js/{,*/}{,*/}{,*/}{,*/}*.js',
+                    '<%= config.app %>/app/components/{,*/}{,*/}{,*/}{,*/}*.js',
                     '<%= config.app %>/app/*.js'
                 ]
             },
@@ -310,11 +311,12 @@ module.exports = function(grunt) {
 	grunt.registerTask('server-dev', ['configureProxies','connect:livereload','watch']);
     grunt.registerTask('server-prod', ['configureProxies','connect:prod:keepalive']);
 
-    grunt.registerTask('test',['clean','jshint','copy','wiredep','useminPrepare','concat','cssmin','usemin',/*'uglify'*/'htmlmin']);
+    grunt.registerTask('test',['clean','jshint','copy','wiredep','useminPrepare',
+                                'concat','cssmin','usemin',/*'uglify'*/'htmlmin']);
     grunt.registerTask('test2', ['uglify:app']);
 
     if (scpPrivateKey !== false){
-        grunt.registerTask('deploy', ['scp']);    
+        grunt.registerTask('deploy', ['scp']);
     } 
     
 
