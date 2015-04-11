@@ -77,7 +77,8 @@ module.exports = function(grunt) {
                     'Gruntfile.js',
                     '<%= config.app %>/assets/js/{,*/}{,*/}{,*/}{,*/}*.js',
                     '<%= config.app %>/app/components/{,*/}{,*/}{,*/}{,*/}*.js',
-                    '<%= config.app %>/app/*.js'
+                    '<%= config.app %>/app/*.js',
+                    '<%= config.app %>/*.js'
                 ]
             },
         },
@@ -86,7 +87,8 @@ module.exports = function(grunt) {
                 'Gruntfile.js',
                 '<%= config.app %>/assets/js/{,*/}{,*/}{,*/}{,*/}*.js',
                 '<%= config.app %>/app/components/{,*/}{,*/}{,*/}{,*/}*.js',
-                '<%= config.app %>/app/*.js'
+                '<%= config.app %>/app/*.js',
+                '<%= config.app %>/*.js'
             ],
             options: {
                 config: '.jscsrc'
@@ -213,9 +215,7 @@ module.exports = function(grunt) {
                     // e.g. 'bower_components/chai/lib/chai.js' will be copied to 'test/js/libs/chai.js'
                     'angular.js': 'angular/angular.min.js',
                     'angular.route.js': 'angular-route/angular-route.min.js',
-                    'jquery.js': 'jquery/dist/jquery.min.js',
-                    'JsBarcode.js': 'jsbarcode/JsBarcode.js',
-                    'md5.js': 'md5/build/md5.min.js'
+                    'jquery.js': 'jquery/dist/jquery.min.js'
                 }
             },
             /*css:{

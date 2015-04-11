@@ -15,7 +15,6 @@
 		<script src="bower_components/md5/build/md5.min.js"></script>
 		<!-- endbower -->
 		
-		<script src="bower_components/jsbarcode/CODE128.js"></script>
 		
 
 	<!-- endbuild -->
@@ -24,7 +23,7 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/css2.css">
 	<!-- endbuild -->
 </head>
-<body ng-app="pocKalkulator">
+<body ng-app="app">
 <div ng-view></div>
 
 
@@ -32,14 +31,10 @@
 	<script src="app/app.module.js"></script>
     <script src="app/app.routes.js"></script>
 
-    <script src="app/components/calc/calcController.js"></script>
-    <script src="app/components/calc/calcService.js"></script>
+    <script src="app/components/calc/calc.controller.js"></script>
+    <script src="app/components/calc/calc.service.js"></script>
+    <script src="app/components/calc/calc-data-loader.service.js"></script>
 
-    <script src="app/components/info/infoController.js"></script>
-
-
-    <script src="assets/js/Candidate.js"></script>
-	<script src="assets/js/KlkParser.js"></script>
 	<script src="assets/js/PollingStationData.js"></script>
 	<script src="assets/js/ValidationRules.js"></script> 
 	<script src="assets/js/Sending.js"></script>

@@ -1,3 +1,8 @@
-/*global angular*/
-'use strict';
-var app = angular.module('pocKalkulator', ['ngRoute']);
+(function() {
+    'use strict';
+    angular.module('app', ['ngRoute',
+        'app.calc']);
+
+    angular.module('app.calc', []);
+})();
+
