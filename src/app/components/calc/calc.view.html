@@ -1,4 +1,4 @@
-﻿<div x-ng-controller="CalcController">
+﻿<div>
 	<form id="theForm" action="PdfServlet" method="post">
 	<h1>Kalkulator OpenPKW &mdash; Prototyp &mdash; Komisja Obwodowa</h1>
 	<input type="hidden" id="liczba_wyborcow" name="liczba_wyborcow" value="">
@@ -8,33 +8,33 @@
 	<div>
 		<label for="wyborWojewodztwa" style="width: 150px; display: inline-block">Wybierz wyjewództwo</label>
         <select id="wyborWojewodztwa" style="width: 200px" 
-                x-ng-options="v.name for v in m.geographyTaxonomy"
-                x-ng-model="m.voivodship"
-                x-ng-change="ctrl.selectFirstDistrict()">
+                ng-options="v.name for v in vm.geographyTaxonomy"
+                ng-model="vm.voivodship"
+                ng-change="vm.selectFirstDistrict()">
         </select>
 		<label for="wyborPowiatu" style="width: 120px; display: inline-block">Wybierz powiat</label>
         <select id="wyborPowiatu" style="width: 300px" 
-                x-ng-options="d.name+' ('+d.type+')' for d in m.voivodship.children" 
-                x-ng-model="m.district" 
-                x-ng-change="ctrl.selectFirstCommunity()">
+                ng-options="d.name+' ('+d.type+')' for d in vm.voivodship.children" 
+                ng-model="vm.district"
+                ng-change="vm.selectFirstCommunity()">
         </select>
 	</div>
 	<div>
 		<label for="wyborGminy" style="width: 150px; display: inline-block">Wybierz gminę</label>
         <select id="wyborGminy" style="width: 200px" 
-                x-ng-options="c.name+' ('+c.type+')' for c in m.district.children" 
-                x-ng-model="m.community">
+                ng-options="c.name+' ('+c.type+')' for c in vm.district.children" 
+                ng-model="vm.community">
         </select>
 		<label for="wyborOKW" style="width: 120px; display: inline-block">Wybierz obwód</label>
         <select id="wyborOKW" style="width: 300px"
-                x-ng-options="'Obwód nr '+p.nrObwodu+': '+p.siedzibaKomisjiObwodowej for p in m.pollingStationsData"
-                x-ng-model="m.pollingStation"></select>
+                ng-options="'Obwód nr '+p.nrObwodu+': '+p.siedzibaKomisjiObwodowej for p in vm.pollingStationsData"
+                ng-model="vm.pollingStation"></select>
 	</div>		
 	<br/>
 	<button type="button" onClick="fill()">Wypełnij formularz przykładowymi danymi</button>
 	<button type="button" onClick="validate()">Sprawdź formularz</button>
 	<button type="button" onClick="send()">Wyślij formularz</button>
-	<button type="button" ng-click="showAsPdf()">Wydrukuj formularz</button>
+	<button type="button" ng-click="vm.printPdf()">Wydrukuj formularz</button>
 	</div>
 
 	<table class="with_borders">
@@ -43,21 +43,21 @@
 		</tr>
 		<tr>
 			<td colspan="2" style="text-align: right">Kod terytorialny gminy<br/>(dzielnicy w m. st. Warszawie)</td>
-			<td><input type="text" id="kodGminy" name="kodGminy" style="width:50px" x-ng-value="m.pollingStation.kodGminy" readonly></td>
+			<td><input type="text" id="kodGminy" name="kodGminy" style="width:50px" ng-value="vm.pollingStation.kodGminy" readonly></td>
 			<td colspan="2" style="text-align:right">Nr obwodu głosowania</td>
-			<td><input type="text" id="nrObwodu" name="nrObwodu" x-ng-value="m.pollingStation.nrObwodu" readonly></td>
+			<td><input type="text" id="nrObwodu" name="nrObwodu" ng-value="vm.pollingStation.nrObwodu" readonly></td>
 		</tr>
 		<tr>
 			<td colspan="2" style="text-align: right">Siedziba Obwodowej Komisji Wyborczej (adres)</td>
-			<td colspan="4"><input type="text" id="adresOKW" name="adresOKW" style="width: 493px" x-ng-value="m.pollingStation.siedzibaKomisjiObwodowej" readonly></td>
+			<td colspan="4"><input type="text" id="adresOKW" name="adresOKW" style="width: 493px" ng-value="vm.pollingStation.siedzibaKomisjiObwodowej" readonly></td>
 		</tr>
 		<tr>
 			<td style="text-align: right">Gmina/Dzielnica</td>
-			<td><input type="text" id="gmina" name="gmina" style="width: 130px" x-ng-value="m.pollingStation.gmina" readonly></td>
+			<td><input type="text" id="gmina" name="gmina" style="width: 130px" ng-value="vm.pollingStation.gmina" readonly></td>
 			<td style="text-align: right">Powiat</td>
-			<td><input type="text" id="powiat" name="powiat" style="width: 130px" x-ng-value="m.pollingStation.powiat" readonly></td>
+			<td><input type="text" id="powiat" name="powiat" style="width: 130px" ng-value="vm.pollingStation.powiat" readonly></td>
 			<td style="text-align: right">Województwo</td>
-			<td><input type="text" id="wojewodztwo" name="wojewodztwo" style="width: 180px" x-ng-value="m.pollingStation.wojewodztwo" readonly></td>
+			<td><input type="text" id="wojewodztwo" name="wojewodztwo" style="width: 180px" ng-value="vm.pollingStation.wojewodztwo" readonly></td>
 		</tr>
 	</table>
 

@@ -1,24 +1,77 @@
 (function() {
     'use strict';
-    angular.module('app.calc').controller('CalcController', ['$scope', '$http', '$window',
-        'CalcService', CalcController
-    ]);
+    angular.module('app.calc').controller('CalcController', CalcController);
 
-    function CalcController($scope, $http, $window, CalcService) {
+    CalcController.$inject = ['$scope', '$http', '$window',
+                'CalcService', 'CalcPdfGeneratorService'];
+
+    function CalcController($scope, $http, $window, CalcService, CalcPdfGeneratorService) {
         var vm = this;
+        vm.printPdf = printPdf;
+        vm.selectFirstVoivodship = selectFirstVoivodship;
+        vm.selectFirstDistrict = selectFirstDistrict;
+        vm.selectFirstCommunity = selectFirstCommunity;
+        vm.selectFirstPollingStation = selectFirstPollingStation;
+        vm.voivodship = null;
+        vm.district = null;
+        vm.geographyTaxonomy = null;
+        vm.candidates = null;
+        vm.pollingStationsData = null;
+        vm.pollingStation = null;
+        initialize();
 
-        var m = {
-            voivodship: null,
-            district: null,
-            geographyTaxonomy: null,
-            candidates: null,
-            pollingStationsData: null,
-            pollingStation: null
-        };
-        $scope.m = m;
+        function printPdf() {
+            CalcPdfGeneratorService.generatePdf(getMockFormData());
+        }
 
-        $scope.showAsPdf = function() {
-            var exampleData = {
+        function selectFirstVoivodship() {
+            var voivodship = vm.geographyTaxonomy[0];
+            vm.voivodship = angular.isUndefined(voivodship) ? null : voivodship;
+            vm.selectFirstDistrict();
+        }
+
+        function selectFirstDistrict() {
+            var district = vm.voivodship.children[0];
+            vm.district = angular.isUndefined(district) ? null : district;
+            vm.selectFirstCommunity();
+        }
+
+        function selectFirstCommunity() {
+            var community = vm.district.children[0];
+            vm.community = angular.isUndefined(community) ? null : community;
+            vm.selectFirstPollingStation();
+        }
+
+        function selectFirstPollingStation() {
+            var poolingStation = vm.pollingStationsData[0];
+            vm.pollingStation = angular.isUndefined(poolingStation) ? null : poolingStation;
+        }
+
+        function initialize() {
+            loadPoolingStationsData()
+                .then(loadGeographyTaxonomy()
+                    .then(console.log('finish initialize data of CalcController')));
+        }
+
+        function loadGeographyTaxonomy() {
+            return CalcService.getGeographyTaxonomy().then(function(response) {
+                vm.geographyTaxonomy = response.data;
+                vm.selectFirstVoivodship();
+                vm.selectFirstDistrict();
+                vm.selectFirstCommunity();
+            });
+        }
+
+        function loadPoolingStationsData() {
+            return CalcService.loadPollingStationsData().then(function(data) {
+                vm.pollingStationsData = data.pollingStationsData;
+                vm.candidates = data.candidates;
+                vm.selectFirstPollingStation();
+            });
+        }
+
+        function getMockFormData() {
+            return {
                 komisja: {
                     kodTerytorialnyGminy: '180801',
                     numerObwoduGlosowania: '5',
@@ -78,73 +131,6 @@
                     funkcjaWKomisji: 'Przewodniczący komisji'
                 }]
             };
-
-            $http.post('/backend/service/protocol', exampleData, {
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                responseType: 'arraybuffer'
-            }).success(function(data) {
-                var blob = new Blob([data], {
-                    type: 'application/pdf'
-                });
-                var url = URL.createObjectURL(blob);
-                $window.open(url);
-            }).error(function() {
-                $window.alert('Nie udało się wygenerować PDFa.');
-            });
-        };
-
-        var ctrl = {};
-        $scope.ctrl = ctrl;
-
-        CalcService.getGeographyTaxonomy().success(function(data) {
-            m.geographyTaxonomy = data;
-            ctrl.selectFirstVoivodship();
-        });
-
-        CalcService.loadPollingStationsData().then(function(data) {
-            m.candidates = data.candidates;
-            m.pollingStationsData = data.pollingStationsData;
-
-            ctrl.selectFirstPollingStation();
-        });
-
-        ctrl.selectFirstVoivodship = function() {
-            if (typeof(m.geographyTaxonomy[0]) !== 'undefined') {
-                m.voivodship = m.geographyTaxonomy[0];
-            } else {
-                m.voivodship = null;
-            }
-            ctrl.selectFirstDistrict();
-        };
-
-        ctrl.selectFirstDistrict = function() {
-            if (typeof(m.voivodship.children[0]) !== 'undefined') {
-                m.district = m.voivodship.children[0];
-            } else {
-                m.district = null;
-            }
-
-            ctrl.selectFirstCommunity();
-        };
-
-        ctrl.selectFirstCommunity = function() {
-            if (typeof(m.district.children[0]) !== 'undefined') {
-                m.community = m.district.children[0];
-            } else {
-                m.community = null;
-            }
-        };
-
-        ctrl.selectFirstPollingStation = function() {
-            if (typeof(m.pollingStationsData[0]) !== 'undefined') {
-                m.pollingStation = m.pollingStationsData[0];
-            } else {
-                m.pollingStation = null;
-            }
-
-        };
-
+        }
     }
 })();
