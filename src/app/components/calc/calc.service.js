@@ -8,7 +8,7 @@
         var getGeographyTaxonomy = [];
 
         this.getGeographyTaxonomy = function() {
-           return $http.get('/assets/resources/teryt.json');
+            return $http.get('/assets/resources/teryt.json');
         };
 
         this.loadPollingStationsData = function() {
