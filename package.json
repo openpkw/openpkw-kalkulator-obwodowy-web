@@ -22,6 +22,7 @@
     "grunt-filerev": "^2.2.0",
     "grunt-filerev-replace": "^0.1.4",
     "grunt-jscs": "^1.6.0",
+    "grunt-karma": "^0.10.1",
     "grunt-newer": "^1.1.0",
     "grunt-scp": "0.1.7",
     "grunt-usemin": "^3.0.0",
@@ -39,8 +40,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "grunt test",
-    "test": "node node_modules/karma/bin/karma start tests/openpkw.js",
+    "test": "node node_modules/karma/bin/karma start tests/karma.conf.js",
     "postinstall": "bower install",
     "prebuild": "npm install",
     "build": "grunt build",

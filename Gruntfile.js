@@ -36,8 +36,24 @@ module.exports = function(grunt) {
         config: config,
         bower: grunt.file.readJSON('./bower.json'),
 
-        watch: {
+        karma: {
+            options: {
+                configFile: 'tests/karma.conf.js'
+            },
+            unit: {},
+            dist: {
+                options: {
+                    files: [
+                        '<%= config.dist %>/js/vendors.min.js',
+                        '<%= config.dist %>/js/myapp.js',
+                        'bower_components/angular-mocks/angular-mocks.js',
+                        'tests/specs/**/*.js'
+                    ]
+                }
+            }
+        },
 
+        watch: {
             js: {
                 files: ['<%= config.app %>/assets/js/{,*/}*.js',
                             '<%= config.app %>/app/{,*/}{,*/}{,*/}*.js'],
@@ -57,7 +73,7 @@ module.exports = function(grunt) {
                 },
                 files: [
                     '<%= config.app %>/index.html',
-                    '<%= config.app %>app/*.html',
+                    '<%= config.app %>/app/*.html',
                     '<%= config.app %>/app/components/{,*/}*.html',
                     '<%= config.app %>/assets/css/{,*/}*.css',
                     '.tmp/css/{,*/}*.css',
@@ -318,17 +334,15 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('default', ['watch']);
+
     grunt.registerTask('build', ['clean', 'jshint', 'jscs', 'copy', 'wiredep', 'useminPrepare',
-                 'concat', 'uglify', 'cssmin', 'filerev', 'usemin', 'htmlmin',
+                 'concat', 'uglify', 'karma:dist', 'cssmin', 'filerev', 'usemin', 'htmlmin',
     ]);
 
     grunt.registerTask('server-dev', ['configureProxies', 'connect:livereload', 'watch']);
     grunt.registerTask('server-prod', ['configureProxies', 'connect:prod:keepalive']);
 
-    grunt.registerTask('test', ['clean', 'jshint', 'copy', 'wiredep', 'useminPrepare',
-        'concat', 'cssmin', 'usemin', /*'uglify'*/ 'htmlmin'
-    ]);
-    grunt.registerTask('test2', ['uglify:app']);
+    grunt.registerTask('test', ['jshint', 'jscs', 'karma:unit']);
 
     if (scpPrivateKey !== false) {
         grunt.registerTask('deploy', ['scp']);
