@@ -2,10 +2,9 @@
     'use strict';
     angular.module('app.calc').controller('CalcController', CalcController);
 
-    CalcController.$inject = ['$scope', '$http', '$window',
-                'CalcService', 'CalcPdfGeneratorService'];
+    CalcController.$inject = ['CalcService', 'CalcPdfGeneratorService'];
 
-    function CalcController($scope, $http, $window, CalcService, CalcPdfGeneratorService) {
+    function CalcController(CalcService, CalcPdfGeneratorService) {
         var vm = this;
         vm.printPdf = printPdf;
         vm.selectFirstVoivodship = selectFirstVoivodship;
