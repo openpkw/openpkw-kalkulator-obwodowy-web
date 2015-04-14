@@ -1,32 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
-	<title>POC Kalkulator wyborczy</title>
-	<meta charset="utf-8">
-    <base href="/" />
-	
-	<!-- build:js(.) js/vendors.min.js-->
-		
-		<!-- bower:js -->
-		<script src="bower_components/jquery/dist/jquery.js"></script>
-		<script src="bower_components/angular/angular.js"></script>
-		<script src="bower_components/angular-route/angular-route.js"></script>
-		<!-- endbower -->
-		
-		
+    <meta charset="utf-8">
+    <title>POC Kalkulator wyborczy</title>
 
-	<!-- endbuild -->
-	<!-- build:css css/style.css-->
-		<link rel="stylesheet" type="text/css" href="assets/css/css1.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/css2.css">
-	<!-- endbuild -->
+    <base href="/"/>
+
+    <!-- build:css css/style.css-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- endbuild -->
 </head>
 <body ng-app="app">
-<div ng-view></div>
+    <div ng-view></div>
 
+    <!-- build:js(.) js/vendors.min.js -->
 
- <!-- build:js js/myapp.js -->
-	<script src="app/app.module.js"></script>
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <!-- endbower -->
+
+    <!-- endbuild -->
+
+    <!-- build:js js/myapp.js -->
+    <script src="app/app.module.js"></script>
     <script src="app/app.routes.js"></script>
 
     <script src="app/components/calc/calc.controller.js"></script>
@@ -34,12 +32,10 @@
     <script src="app/components/calc/calc-data-loader.service.js"></script>
     <script src="app/components/calc/calc-pdf-generator.service.js"></script>
 
-
-	<script src="assets/js/PollingStationData.js"></script>
-	<script src="assets/js/ValidationRules.js"></script> 
-	<script src="assets/js/Sending.js"></script>
-	<script src="assets/js/FillingWithExampleData.js"></script>
- <!-- endbuild -->
-
-</body>
+    <script src="assets/js/PollingStationData.js"></script>
+    <script src="assets/js/ValidationRules.js"></script>
+    <script src="assets/js/Sending.js"></script>
+    <script src="assets/js/FillingWithExampleData.js"></script>
+    <!-- endbuild -->
+    </body>
 </html>
