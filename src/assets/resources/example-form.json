@@ -48,10 +48,27 @@
         "pole20": "Brak zarzutów.",
         "pole21": "Brak uwag."
     },
-    "czlonkowieKomisji": [
+    "commissionMembers": [
         {
-            "imionaINazwisko": "Euzebiusz Szybki",
-            "funkcjaWKomisji": "Przewodniczący komisji"
+            "name1": "Euzebiusz",
+            "name2": "Stanisław",
+            "surname" : "Szybki",
+            "role": "Przewodniczący",
+            "sign": "true"
+        },
+        {
+            "name1": "Kamil",
+            "name2": "Tadeusz",
+            "surname" : "Słowikowski",
+            "role": "Zastępca Przewodniczącego",
+            "sign": "false"
+        },
+        {
+            "name1": "Michał",
+            "name2": "Henryk",
+            "surname" : "Kania",
+            "role": "Członek",
+            "sign": "false"
         }
     ]
 }
