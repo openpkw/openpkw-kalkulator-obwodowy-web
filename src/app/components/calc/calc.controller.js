@@ -2,25 +2,33 @@
     'use strict';
     angular.module('app.calc').controller('CalcController', CalcController);
 
-    CalcController.$inject = ['CalcService', 'CalcPdfGeneratorService'];
+    CalcController.$inject = ['CalcService', 'CalcPdfGeneratorService', 'FormMock', '$window'];
 
-    function CalcController(CalcService, CalcPdfGeneratorService) {
+    function CalcController(CalcService, CalcPdfGeneratorService, FormMock, $window) {
         var vm = this;
         vm.printPdf = printPdf;
         vm.selectFirstVoivodship = selectFirstVoivodship;
         vm.selectFirstDistrict = selectFirstDistrict;
         vm.selectFirstCommunity = selectFirstCommunity;
         vm.selectFirstPollingStation = selectFirstPollingStation;
-        vm.voivodship = null;
-        vm.district = null;
-        vm.geographyTaxonomy = null;
-        vm.candidates = null;
-        vm.pollingStationsData = null;
-        vm.pollingStation = null;
+        vm.addEmptyCommissionMember = addEmptyCommissionMember;
+        vm.loadMockFormData = loadMockFormData;
+        vm.removeCommissionMember = removeCommissionMember;
+        vm.commissionMemberRoles = [];
+        /*calc formData begin*/
+        vm.formData = {};
+        vm.formData.voivodship = null;
+        vm.formData.district = null;
+        vm.formData.geographyTaxonomy = null;
+        vm.formData.candidates = null;
+        vm.formData.pollingStationsData = null;
+        vm.formData.pollingStation = null;
+        vm.formData.commissionMembers = [];
+        /*calc formData end*/
         initialize();
 
         function printPdf() {
-            CalcPdfGeneratorService.generatePdf(getMockFormData());
+            CalcPdfGeneratorService.generatePdf(vm.formData);
         }
 
         function selectFirstVoivodship() {
@@ -47,9 +55,16 @@
         }
 
         function initialize() {
+            vm.commissionMemberRoles = ['', 'Członek',
+                        'Zastępca Przewodniczącego', 'Przewodniczący'];
+            if (vm.formData.commissionMembers.length === 0) {
+                addEmptyCommissionMember();
+            }
+
             loadPoolingStationsData()
                 .then(loadGeographyTaxonomy()
                     .then(console.log('finish initialize data of CalcController')));
+
         }
 
         function loadGeographyTaxonomy() {
@@ -69,67 +84,23 @@
             });
         }
 
-        function getMockFormData() {
-            return {
-                komisja: {
-                    kodTerytorialnyGminy: '180801',
-                    numerObwoduGlosowania: '5',
-                    siedzibaObwodowejKomisjiWyborczej: 'Gimnazjum Miejskie im. ' +
-                        'Władysława Jagiełły, ' +
-                        'Leżajsk ul. Skłodowskiej 8, 37-300 Leżajsk',
-                    gminaDzielnica: 'm. Leżajsk',
-                    powiat: 'leżajski',
-                    wojewodztwo: 'podkarpackie'
-                },
-                akcjaWyborcza: {
-                    dataGlosowania: '24 czerwca 2015 r.',
-                    dzienMiesiacGlosowania: '24 czerwca',
-                    rokGlosowania: '15',
-                    godzinaGlosowaniaOd: '9:00',
-                    godzinaGlosowaniaDo: '21:00'
-                },
-                rozliczenieKart: {
-                    pole1: '17',
-                    pole2: '18',
-                    pole3: '19',
-                    pole4: '20',
-                    pole5: '21',
-                    pole6: '22',
-                    pole7: '23',
-                    pole8: '24',
-                    pole8a: '25',
-                    pole8b: '26',
-                    pole8c: '27',
-                    pole8d: '28',
-                    pole8e: '29'
-                },
-                wynikiGlosowania: {
-                    pole9: '101',
-                    pole9a: '102',
-                    pole10: '103',
-                    pole11: '104',
-                    pole12: '105',
-                    pole13: '106',
-                    pole14: [{
-                        imionaINazwisko: 'Bronisław Komorowski',
-                        sumaGlosowWaznych: '901'
-                    }],
-                    sumaGlosowWaznych: '1024'
-                },
-                uwagiIAdnotacje: {
-                    pole15: 'Brak uwag.',
-                    pole16: 'Brak uwag.',
-                    pole17: 'Brak uwag.',
-                    pole18: 'Brak zarządzeń.',
-                    pole19: 'Brak zarzutów.',
-                    pole20: 'Brak zarzutów.',
-                    pole21: 'Brak uwag.'
-                },
-                czlonkowieKomisji: [{
-                    imionaINazwisko: 'Euzebiusz Szybki',
-                    funkcjaWKomisji: 'Przewodniczący komisji'
-                }]
-            };
+        function addEmptyCommissionMember() {
+            vm.formData.commissionMembers.push({name1:'', name2:'', surname:'', role:'',
+                sign:''});
+        }
+
+        function loadMockFormData() {
+            FormMock.getExampleData().then(function(response) {vm.formData = response.data;
+                console.log(response.data);});
+        }
+        function removeCommissionMember(index) {
+            console.log(vm.formData.commissionMembers[index]);
+            var member = vm.formData.commissionMembers[index];
+            var confirmMessage = 'Czy na pewno chcesz usunąć wybranego członka: ' +
+                member.name1 + ' ' + member.name2 + ' ' + member.surname;
+            if ($window.confirm(confirmMessage)) {
+                vm.formData.commissionMembers.splice(index, 1);
+            }
         }
     }
 })();

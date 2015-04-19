@@ -5,7 +5,16 @@
         .service('CalcDataLoader', CalcDataLoader);
 
     function CalcDataLoader() {
-        this.loadCandidates = function(xmlDoc) {
+
+        var service = {
+            loadCandidates: loadCandidates,
+            loadPollingStationsData: loadPollingStationsData,
+            loadPollingStationData : loadPollingStationData
+        };
+
+        return service;
+
+        function loadCandidates(xmlDoc) {
             var result = [];
             var candidateElements = $(xmlDoc).find('kandydat');
             candidateElements.each(function(index) {
@@ -17,45 +26,45 @@
             });
 
             return result;
-        };
+        }
 
-        this.loadPollingStationsData = function(xmlDoc) {
+        function loadPollingStationsData(xmlDoc) {
             if (typeof(xmlDoc) === 'string') {
                 xmlDoc = $.parseXML(xmlDoc);
             }
 
-            var numberOfPollingStations = this.getNumberOfNodes(xmlDoc,
+            var numberOfPollingStations = getNumberOfNodes(xmlDoc,
                 'count(/kalkulator/akcja/jednostka/jednostka/jednostka/obwod)');
             var result = [];
             for (var idx = 0; idx < numberOfPollingStations; idx++) {
-                var pollingStationData = this.loadPollingStationData(xmlDoc, idx + 1);
+                var pollingStationData = loadPollingStationData(xmlDoc, idx + 1);
                 result[idx] = pollingStationData;
             }
 
             return result;
-        };
+        }
 
-        this.loadPollingStationData = function(xmlDoc, idx) {
+        function loadPollingStationData(xmlDoc, idx) {
             var result = [];
 
             var xml = xmlDoc;
-            var kodGminy = this.getAttribute(xml, '/kalkulator/akcja/jednostka/' +
+            var kodGminy = getAttribute(xml, '/kalkulator/akcja/jednostka/' +
                 'jednostka/jednostka/@jnsKod');
-            var nrObwodu = this.getAttribute(xml, '/kalkulator/akcja/jednostka/jednostka' +
+            var nrObwodu = getAttribute(xml, '/kalkulator/akcja/jednostka/jednostka' +
                 '/jednostka/obwod[' + idx + ']/@obdNumer');
-            var siedzibaKomisjiObwodowej = this.getAttribute(xml, '/kalkulator/akcja' +
+            var siedzibaKomisjiObwodowej = getAttribute(xml, '/kalkulator/akcja' +
                 '/jednostka/jednostka/jednostka/obwod[' + idx + ']/obdAdres');
-            var gmina = this.getAttribute(xml, '/kalkulator/akcja/jednostka' +
+            var gmina = getAttribute(xml, '/kalkulator/akcja/jednostka' +
                 '/jednostka/jednostka/jnsNazwa');
             var powiat = '?';
-            var wojewodztwo = this.getAttribute(xml,
+            var wojewodztwo = getAttribute(xml,
                 '/kalkulator/akcja/jednostka/jednostka/jnsNazwa');
-            var numerKomisjiOkregowej = this.getAttribute(xml, '/kalkulator/akcja' +
+            var numerKomisjiOkregowej = getAttribute(xml, '/kalkulator/akcja' +
                 '/jednostka/jednostka/jednostka/organWyborczy/slownik/wpis[@typ=\'NUMER\']');
-            var siedzibaKomisjiOkregowej = this.getAttribute(xml, '/kalkulator/akcja' +
+            var siedzibaKomisjiOkregowej = getAttribute(xml, '/kalkulator/akcja' +
                 '/jednostka/jednostka/jednostka/organWyborczy/slownik/' +
                 'wpis[@typ=\'MIEJSCOWNIK_W\']');
-            var liczbaWyborcow = this.getAttribute(xml, '/kalkulator/akcja/' +
+            var liczbaWyborcow = getAttribute(xml, '/kalkulator/akcja/' +
                 'jednostka/jednostka/jednostka/obwod[' + idx + ']/obwodPzt/@oodLiczbaWyborcow');
 
             return {
@@ -69,18 +78,15 @@
                 siedzibaKomisjiOkregowej : siedzibaKomisjiOkregowej,
                 liczbaWyborcow : liczbaWyborcow
             };
-        };
-
-        this.getAttribute = function(document, path) {
+        }
+        function getAttribute(document, path) {
             return document.evaluate(path, document, null, XPathResult.ANY_TYPE, null)
                 .iterateNext()
                 .textContent;
-        };
-
-        this.getNumberOfNodes = function(document, path) {
+        }
+        function getNumberOfNodes(document, path) {
             return document.evaluate(path, document, null, XPathResult.ANY_TYPE, null)
                 .numberValue;
-        };
+        }
     }
-
 })();
