@@ -15,14 +15,19 @@
         vm.loadMockFormData = loadMockFormData;
         vm.removeCommissionMember = removeCommissionMember;
         vm.commissionMemberRoles = [];
+        vm.voivodship = null;
+        vm.district = null;
+        vm.geographyTaxonomy = null;
+        vm.candidates = null;
+        vm.pollingStationsData = null;
+        vm.pollingStation = null;
         /*calc formData begin*/
         vm.formData = {};
-        vm.formData.voivodship = null;
-        vm.formData.district = null;
-        vm.formData.geographyTaxonomy = null;
-        vm.formData.candidates = null;
-        vm.formData.pollingStationsData = null;
-        vm.formData.pollingStation = null;
+        vm.formData.komisja = {};
+        vm.formData.akcjaWyborcza = {};
+        vm.formData.rozliczeniaKart = {};
+        vm.formData.uwagiIAdnotacje = {};
+        vm.formData.wynikiGlosowania = {};
         vm.formData.commissionMembers = [];
         /*calc formData end*/
         initialize();
@@ -57,10 +62,6 @@
         function initialize() {
             vm.commissionMemberRoles = ['', 'Członek',
                         'Zastępca Przewodniczącego', 'Przewodniczący'];
-            if (vm.formData.commissionMembers.length === 0) {
-                addEmptyCommissionMember();
-            }
-
             loadPoolingStationsData()
                 .then(loadGeographyTaxonomy()
                     .then(console.log('finish initialize data of CalcController')));
