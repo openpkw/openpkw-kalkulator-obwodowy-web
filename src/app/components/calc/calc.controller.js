@@ -28,7 +28,7 @@
         vm.formData.rozliczeniaKart = {};
         vm.formData.uwagiIAdnotacje = {};
         vm.formData.wynikiGlosowania = {};
-        vm.formData.commissionMembers = [];
+        vm.formData.czlonkowieKomisji = [];
         /*calc formData end*/
         initialize();
 
@@ -86,8 +86,8 @@
         }
 
         function addEmptyCommissionMember() {
-            vm.formData.commissionMembers.push({name1:'', name2:'', surname:'', role:'',
-                sign:''});
+            vm.formData.czlonkowieKomisji.push({imie1:'', imie2:'', nazwisko:'', funkcja:'',
+                obecnosc:''});
         }
 
         function loadMockFormData() {
@@ -95,12 +95,12 @@
                 console.log(response.data);});
         }
         function removeCommissionMember(index) {
-            console.log(vm.formData.commissionMembers[index]);
-            var member = vm.formData.commissionMembers[index];
+            console.log(vm.formData.czlonkowieKomisji[index]);
+            var member = vm.formData.czlonkowieKomisji[index];
             var confirmMessage = 'Czy na pewno chcesz usunąć wybranego członka: ' +
-                member.name1 + ' ' + member.name2 + ' ' + member.surname;
+                member.imie1 + ' ' + member.imie2 + ' ' + member.nazwisko;
             if ($window.confirm(confirmMessage)) {
-                vm.formData.commissionMembers.splice(index, 1);
+                vm.formData.czlonkowieKomisji.splice(index, 1);
             }
         }
     }

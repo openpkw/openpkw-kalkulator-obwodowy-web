@@ -285,19 +285,19 @@
             <th>Obecność</th>
             <th>Kasuj</th>
         </tr>
-        <tr ng-repeat="member in vm.formData.commissionMembers">
+        <tr ng-repeat="member in vm.formData.czlonkowieKomisji">
             <td>{{$index + 1}}</td>
-            <td style="width:150px;"><input type="text" placeholder="Imię 1" ng-value="member.name1"/></td>
-            <td><input type="text" placeholder="Imię 2" ng-value="member.name2"/></td>
-            <td><input type="text" placeholder="Nazwisko" ng-value="member.surname"/></td>
+            <td style="width:150px;"><input type="text" placeholder="Imię 1" ng-value="member.imie1"/></td>
+            <td><input type="text" placeholder="Imię 2" ng-value="member.imie2"/></td>
+            <td><input type="text" placeholder="Nazwisko" ng-value="member.nazwisko"/></td>
             <td>
-                <select ng-options="option as option for option in vm.commissionMemberRoles" ng-model="member.role">
+                <select ng-options="option as option for option in vm.commissionMemberRoles" ng-model="member.funkcja">
                     
                 </select>
             </td>
             <td>
-                <label for ><input value="true" type="radio" name="member_sign_{{$index}}_true" ng-model="member.sign"/> Tak</label>
-                <label for ><input value="false" type="radio" name="member_sign_{{$index}}_false" ng-model="member.sign"/> Nie</label>
+                <label for ><input value="true" type="radio" name="member_sign_{{$index}}_true" ng-model="member.obecnosc"/> Tak</label>
+                <label for ><input value="false" type="radio" name="member_sign_{{$index}}_false" ng-model="member.obecnosc"/> Nie</label>
             </td>
             <td>
                 <button type="button" ng-click="vm.removeCommissionMember($index)">Kasuj</button>
