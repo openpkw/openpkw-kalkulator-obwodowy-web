@@ -48,27 +48,27 @@
         "pole20": "Brak zarzutów.",
         "pole21": "Brak uwag."
     },
-    "commissionMembers": [
+    "czlonkowieKomisji": [
         {
-            "name1": "Euzebiusz",
-            "name2": "Stanisław",
-            "surname" : "Szybki",
-            "role": "Przewodniczący",
-            "sign": "true"
+            "imie1": "Euzebiusz",
+            "imie2": "Stanisław",
+            "nazwisko" : "Szybki",
+            "funkcja": "Przewodniczący",
+            "obecnosc": "true"
         },
         {
-            "name1": "Kamil",
-            "name2": "Tadeusz",
-            "surname" : "Słowikowski",
-            "role": "Zastępca Przewodniczącego",
-            "sign": "false"
+            "imie1": "Kamil",
+            "imie2": "Tadeusz",
+            "nazwisko" : "Słowikowski",
+            "funkcja": "Zastępca Przewodniczącego",
+            "obecnosc": "false"
         },
         {
-            "name1": "Michał",
-            "name2": "Henryk",
-            "surname" : "Kania",
-            "role": "Członek",
-            "sign": "false"
+            "imie1": "Michał",
+            "imie2": "Henryk",
+            "nazwisko" : "Kania",
+            "funkcja": "Członek",
+            "obecnosc": "false"
         }
     ]
 }
