@@ -25,7 +25,7 @@
         vm.formData = {};
         vm.formData.komisja = {};
         vm.formData.akcjaWyborcza = {};
-        vm.formData.rozliczeniaKart = {};
+        vm.formData.rozliczenieKart = {};
         vm.formData.uwagiIAdnotacje = {};
         vm.formData.wynikiGlosowania = {};
         vm.formData.czlonkowieKomisji = [];
