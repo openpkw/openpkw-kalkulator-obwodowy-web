@@ -12,8 +12,10 @@
             addHardError: addHardError,
             getHardErrors: getHardErrors,
             hardErrorsExist: hardErrorsExist,
+            removeHardError: removeHardError,
             softErrorsExist: softErrorsExist,
-            getSoftErrors: getSoftErrors
+            getSoftErrors: getSoftErrors,
+            removeSoftError: removeSoftError
         };
 
         function addHardError(key, message) {
@@ -25,11 +27,17 @@
         function hardErrorsExist() {
             return !angular.equals({}, hardErrors);
         }
+        function removeHardError(key) {
+            delete hardErrors[key];
+        }
         function getSoftErrors() {
             return softErrors;
         }
         function softErrorsExist() {
             return !angular.equals({}, softErrors);
+        }
+        function removeSoftError(key) {
+            delete softErrors[key];
         }
 
         return service;

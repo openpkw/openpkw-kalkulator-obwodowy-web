@@ -24,6 +24,7 @@
                             'Liczba osób, którym wydano karty do głosowania (pkt. 4), nie może ' +
                             'być większa od liczby wyborców uprawnionych do głosowania (pkt. 1).');
                     } else {
+                        ValidationMessagesService.removeHardError('P1');
                         angular.element(
                             document.querySelectorAll('[president-hard-error-p1]'))
                             .removeClass('has-error');
@@ -54,6 +55,7 @@
                             'Liczba kart wyjętych z urny (pkt. 9) musi być równa sumie liczby ' +
                             'kart nieważnych (pkt. 10) i liczby kart ważnych (pkt. 11)');
                     } else {
+                        ValidationMessagesService.removeHardError('P2');
                         angular.element(
                             document.querySelectorAll('[president-hard-error-p2]'))
                             .removeClass('has-error');
