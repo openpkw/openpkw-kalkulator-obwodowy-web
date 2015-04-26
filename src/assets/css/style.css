@@ -93,3 +93,12 @@ table.with_borders td {
 .info {
 	text-align: center;
 }
+
+input.has-error{
+	border:1px solid red;
+	background:pink;
+}
+input.has-warning{
+	border:1px solid orange;
+	background:gold;
+}

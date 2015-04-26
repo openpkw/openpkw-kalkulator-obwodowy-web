@@ -2,23 +2,26 @@
     'use strict';
     angular
         .module('app.calc')
-        .service('CalcService', ['$http', 'CalcDataLoader', CalcService]);
+        .service('CalcService', ['$http', '$q', 'CalcDataLoader', CalcService]);
 
-    function CalcService($http, CalcDataLoader) {
+    function CalcService($http, $q, CalcDataLoader) {
         var getGeographyTaxonomy = [];
+        var poolingStationsData = {};
 
         this.getGeographyTaxonomy = function() {
             return $http.get('/assets/resources/teryt.json');
         };
 
         this.loadPollingStationsData = function() {
-            return $http.get('/assets/resources/106101.xml')
+            var deferred = $q.defer();
+            $http.get('/assets/resources/106101.xml')
                 .then(function(response) {
-                    return {
+                    deferred.resolve({
                         candidates: CalcDataLoader.loadCandidates(response.data),
                         pollingStationsData: CalcDataLoader.loadPollingStationsData(response.data)
-                    };
+                    });
                 });
+            return deferred.promise;
         };
     }
 })();
