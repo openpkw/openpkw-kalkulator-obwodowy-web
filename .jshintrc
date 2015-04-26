@@ -53,6 +53,9 @@
 
     "browser": true,
     "node": true,
+    "jasmine": true,
+    "mocha":true,
+
 
     "globals": {
         "angular": false,

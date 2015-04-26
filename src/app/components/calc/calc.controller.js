@@ -1,10 +1,13 @@
 (function() {
     'use strict';
-    angular.module('app.calc').controller('CalcController', CalcController);
+    angular.module('app.calc')
+    .controller('CalcController', CalcController);
 
-    CalcController.$inject = ['CalcService', 'CalcPdfGeneratorService', 'FormMock', '$window'];
+    CalcController.$inject = ['CalcService', 'CalcPdfGeneratorService', 'FormMock',
+                                'ValidationMessagesService', '$window', '$scope'];
 
-    function CalcController(CalcService, CalcPdfGeneratorService, FormMock, $window) {
+    function CalcController(CalcService, CalcPdfGeneratorService, FormMock,
+                            ValidationMessagesService, $window, $scope) {
         var vm = this;
         vm.printPdf = printPdf;
         vm.selectFirstVoivodship = selectFirstVoivodship;
@@ -15,6 +18,8 @@
         vm.loadMockFormData = loadMockFormData;
         vm.removeCommissionMember = removeCommissionMember;
         vm.commissionMemberRoles = [];
+        vm.getHardErrorMessages = getHardErrorMessages;
+        vm.hardErrorsExist = hardErrorsExist;
         /*calc formData begin*/
         vm.formData = {};
         vm.formData.voivodship = null;
@@ -101,6 +106,12 @@
             if ($window.confirm(confirmMessage)) {
                 vm.formData.commissionMembers.splice(index, 1);
             }
+        }
+        function getHardErrorMessages() {
+            return ValidationMessagesService.getHardErrors();
+        }
+        function hardErrorsExist() {
+            return ValidationMessagesService.hardErrorsExist();
         }
     }
 })();
