@@ -318,7 +318,7 @@ module.exports = function(grunt) {
         scp: {
             options: {
                 host: 'localhost',
-		port: 22,
+                port: 22,
                 username: 'openpkw-cd',
                 privateKey: scpPrivateKey,
                 tryKeyboard: true
