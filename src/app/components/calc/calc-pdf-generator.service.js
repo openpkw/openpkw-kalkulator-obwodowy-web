@@ -25,7 +25,7 @@
         };
 
         this.sendFormData = function(formData) {
-            return $http.post('/backend/service/protocol', formData, {
+            return $http.post('/openpkw-dokument-generator/service/protocol', formData, {
                 headers: {
                     'Content-Type': 'application/json'
                 },
