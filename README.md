@@ -26,3 +26,4 @@ Na serwerach skonfigurowane jest proxy które przekierowuje requesty do backendu
 * [KOW-U-1](https://trello.com/c/dyPptnCI): Wprowadzanie do systemu i walidacja danych protokołu
 * [KOW-U-2](https://trello.com/c/HHvJ0GR2): Wydruk protokołu
 * [KOW-U-3](https://trello.com/c/Scdk8DVb): Przesyłanie formularza w postaci elektronicznej na serwer
+* [KOW-I-3](https://trello.com/c/r80nz2MC): Przyspieszenie deploymentu
