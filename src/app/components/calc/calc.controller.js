@@ -27,7 +27,7 @@
         vm.formData.geographyTaxonomy = null;
         vm.formData.candidates = null;
         vm.formData.pollingStationsData = null;
-        vm.formData.pollingStation = null;
+        vm.formData.komisja = null;
         vm.formData.commissionMembers = [];
         /*calc formData end*/
         initialize();
@@ -56,7 +56,7 @@
 
         function selectFirstPollingStation() {
             var poolingStation = vm.pollingStationsData[0];
-            vm.pollingStation = angular.isUndefined(poolingStation) ? null : poolingStation;
+            vm.formData.komisja = angular.isUndefined(poolingStation) ? null : poolingStation;
         }
 
         function initialize() {

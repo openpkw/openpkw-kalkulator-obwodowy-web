@@ -5,7 +5,7 @@ var config = {
     app: 'src', //app sources
     dist: 'dist', // builded app
     livereloadPort: 35729,
-    backendProxy: '52.1.164.93' // JBoss u Sebastiana (podstawowy backend)
+    backendProxy: 'dobromir.openpkw.pl'
     //backendProxy: '91.250.114.134'  // WebLogic u Adama (dodatkowy backend)
 
     // Uwaga, zmieniając IP trzeba też zmienić ścieżkę w sekcji rewrite konfiguracji proxies dalej w tym pliku
@@ -306,11 +306,12 @@ module.exports = function(grunt) {
             proxies: [{
                 context: '/backend/service/protocol',
                 host: config.backendProxy,
-                port: 8080,
+                port: 9080,
                 https: false,
                 xforward: false,
                 rewrite: {
-                    '^(\/backend\/service\/protocol[/]{0,1})(.*)$': '/openpkw/service/protocol/$2'
+                    '^(\/backend\/service\/protocol[/]{0,1})(.*)$':
+                        '/openpkw-dokument-generator/service/protocol/$2'
                 }
             }]
 
