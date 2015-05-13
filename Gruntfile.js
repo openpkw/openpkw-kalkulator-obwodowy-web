@@ -82,6 +82,7 @@ module.exports = function(grunt) {
                 globalstrict: true,
                 reporter: require('jshint-stylish'),
                 jshintrc: '.jshintrc',
+                jasmine: true,
             },
             all: {
                 src: [

@@ -21,7 +21,9 @@
 ### Informacje
 Na serwerach skonfigurowane jest proxy które przekierowuje requesty do backendu. Jego konfiguracja jest w pliku *Gruntfile.js* w sekcji ```proxies:```
 
-### Lista zadań
+### Lista zadań:
+* Wszystkie zadania: [Trello](https://trello.com/b/pfN6MeTO/openpkw-kalkulator-obwodowy-web)
 * [KOW-U-1](https://trello.com/c/dyPptnCI): Wprowadzanie do systemu i walidacja danych protokołu
 * [KOW-U-2](https://trello.com/c/HHvJ0GR2): Wydruk protokołu
 * [KOW-U-3](https://trello.com/c/Scdk8DVb): Przesyłanie formularza w postaci elektronicznej na serwer
+* [KOW-I-3](https://trello.com/c/r80nz2MC): Przyspieszenie deploymentu
