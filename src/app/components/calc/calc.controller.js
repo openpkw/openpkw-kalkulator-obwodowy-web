@@ -1,10 +1,13 @@
 (function() {
     'use strict';
-    angular.module('app.calc').controller('CalcController', CalcController);
+    angular.module('app.calc')
+    .controller('CalcController', CalcController);
 
-    CalcController.$inject = ['CalcService', 'CalcPdfGeneratorService', 'FormMock', '$window'];
+    CalcController.$inject = ['CalcService', 'CalcPdfGeneratorService', 'FormMock',
+                                'ValidationMessagesService', '$window', '$scope'];
 
-    function CalcController(CalcService, CalcPdfGeneratorService, FormMock, $window) {
+    function CalcController(CalcService, CalcPdfGeneratorService, FormMock,
+                            ValidationMessagesService, $window, $scope) {
         var vm = this;
         vm.printPdf = printPdf;
         vm.selectFirstVoivodship = selectFirstVoivodship;
@@ -15,6 +18,9 @@
         vm.loadMockFormData = loadMockFormData;
         vm.removeCommissionMember = removeCommissionMember;
         vm.commissionMemberRoles = [];
+
+        vm.getHardErrorMessages = getHardErrorMessages;
+        vm.hardErrorsExist = hardErrorsExist;
         vm.voivodship = null;
         vm.district = null;
         vm.geographyTaxonomy = null;
@@ -56,7 +62,7 @@
 
         function selectFirstPollingStation() {
             var poolingStation = vm.pollingStationsData[0];
-            vm.pollingStation = angular.isUndefined(poolingStation) ? null : poolingStation;
+            vm.formData.komisja = angular.isUndefined(poolingStation) ? null : poolingStation;
         }
 
         function initialize() {
@@ -102,6 +108,12 @@
             if ($window.confirm(confirmMessage)) {
                 vm.formData.czlonkowieKomisji.splice(index, 1);
             }
+        }
+        function getHardErrorMessages() {
+            return ValidationMessagesService.getHardErrors();
+        }
+        function hardErrorsExist() {
+            return ValidationMessagesService.hardErrorsExist();
         }
     }
 })();

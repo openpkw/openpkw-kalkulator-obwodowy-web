@@ -24,7 +24,6 @@
                     lastName : $(this).find('nazwisko')[0].innerHTML
                 });
             });
-
             return result;
         }
 
