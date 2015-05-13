@@ -1,4 +1,4 @@
-###Instrukcja instalacji i uruchamiania
+### Instrukcja instalacji i uruchamiania
 - Ściągamy i instalujemy [git'a](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - Ściągamy i instalujemy [nodejs](https://nodejs.org/download/)
 - W katalogu gdzie zainstalowany jest node uruchamiamy:<br/>
@@ -12,7 +12,18 @@
   ```npm run server-prod``` - startuje serwer produkcyjny [http://localhost:8088](http://localhost:8088), może być również używany przez osoby chcące tylko pooglądać aplikację<br/>
 ```npm run server-dev``` - serwer deweloperski [http://localhost:9000](http://localhost:9000), obsługuje livereload (przeglądarka sama się odświeża gdy edytujemy i zapisujemy pliki), uruchamia się szybciej niż. Przed uruchomieniem nie trzeba budować aplikacji ponieważ serwer działa na plikach z katalogu ```src``<br/>
 
-###Informacje
+### Środowiska
+* Continuous Delivery: (http://dobromir.openpkw.pl:8080/view/openpkw-kalkulator-obwodowy-web%20pipeline/)
+* DEV: (http://dobromir.openpkw.pl/)
+* UAT: -
+* PROD: -
+
+### Informacje
 Na serwerach skonfigurowane jest proxy które przekierowuje requesty do backendu. Jego konfiguracja jest w pliku *Gruntfile.js* w sekcji ```proxies:```
 
-###Struktura źródeł aplikacji
+### Lista zadań:
+* Wszystkie zadania: [Trello](https://trello.com/b/pfN6MeTO/openpkw-kalkulator-obwodowy-web)
+* [KOW-U-1](https://trello.com/c/dyPptnCI): Wprowadzanie do systemu i walidacja danych protokołu
+* [KOW-U-2](https://trello.com/c/HHvJ0GR2): Wydruk protokołu
+* [KOW-U-3](https://trello.com/c/Scdk8DVb): Przesyłanie formularza w postaci elektronicznej na serwer
+* [KOW-I-3](https://trello.com/c/r80nz2MC): Przyspieszenie deploymentu

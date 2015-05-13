@@ -18,17 +18,23 @@
         vm.loadMockFormData = loadMockFormData;
         vm.removeCommissionMember = removeCommissionMember;
         vm.commissionMemberRoles = [];
+
         vm.getHardErrorMessages = getHardErrorMessages;
         vm.hardErrorsExist = hardErrorsExist;
+        vm.voivodship = null;
+        vm.district = null;
+        vm.geographyTaxonomy = null;
+        vm.candidates = null;
+        vm.pollingStationsData = null;
+        vm.pollingStation = null;
         /*calc formData begin*/
         vm.formData = {};
-        vm.formData.voivodship = null;
-        vm.formData.district = null;
-        vm.formData.geographyTaxonomy = null;
-        vm.formData.candidates = null;
-        vm.formData.pollingStationsData = null;
-        vm.formData.komisja = null;
-        vm.formData.commissionMembers = [];
+        vm.formData.komisja = {};
+        vm.formData.akcjaWyborcza = {};
+        vm.formData.rozliczenieKart = {};
+        vm.formData.uwagiIAdnotacje = {};
+        vm.formData.wynikiGlosowania = {};
+        vm.formData.czlonkowieKomisji = [];
         /*calc formData end*/
         initialize();
 
@@ -62,10 +68,6 @@
         function initialize() {
             vm.commissionMemberRoles = ['', 'Członek',
                         'Zastępca Przewodniczącego', 'Przewodniczący'];
-            if (vm.formData.commissionMembers.length === 0) {
-                addEmptyCommissionMember();
-            }
-
             loadPoolingStationsData()
                 .then(loadGeographyTaxonomy()
                     .then(console.log('finish initialize data of CalcController')));
@@ -90,8 +92,8 @@
         }
 
         function addEmptyCommissionMember() {
-            vm.formData.commissionMembers.push({name1:'', name2:'', surname:'', role:'',
-                sign:''});
+            vm.formData.czlonkowieKomisji.push({imie1:'', imie2:'', nazwisko:'', funkcja:'',
+                obecnosc:''});
         }
 
         function loadMockFormData() {
@@ -99,12 +101,12 @@
                 console.log(response.data);});
         }
         function removeCommissionMember(index) {
-            console.log(vm.formData.commissionMembers[index]);
-            var member = vm.formData.commissionMembers[index];
+            console.log(vm.formData.czlonkowieKomisji[index]);
+            var member = vm.formData.czlonkowieKomisji[index];
             var confirmMessage = 'Czy na pewno chcesz usunąć wybranego członka: ' +
-                member.name1 + ' ' + member.name2 + ' ' + member.surname;
+                member.imie1 + ' ' + member.imie2 + ' ' + member.nazwisko;
             if ($window.confirm(confirmMessage)) {
-                vm.formData.commissionMembers.splice(index, 1);
+                vm.formData.czlonkowieKomisji.splice(index, 1);
             }
         }
         function getHardErrorMessages() {

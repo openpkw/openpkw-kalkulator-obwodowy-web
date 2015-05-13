@@ -1,4 +1,4 @@
-/*global require, module*/
+﻿/*global require, module*/
 'use strict';
 
 var config = {
@@ -319,7 +319,8 @@ module.exports = function(grunt) {
 
         scp: {
             options: {
-                host: '52.4.122.192',
+                host: 'localhost',
+                port: 22,
                 username: 'openpkw-cd',
                 privateKey: scpPrivateKey,
                 tryKeyboard: true
@@ -329,7 +330,7 @@ module.exports = function(grunt) {
                     cwd: './dist',
                     src: '**/*',
                     filter: 'isFile',
-                    dest: '/www'
+                    dest: '/var/www/html/openpkw-kalkulator-obwodowy-web'
                 }]
             },
         }
