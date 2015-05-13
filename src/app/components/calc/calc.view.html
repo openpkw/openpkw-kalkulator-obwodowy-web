@@ -18,7 +18,7 @@
                 <select id="wyborGminy" style="width: 200px" ng-options="c.name+' ('+c.type+')' for c in vm.district.children" ng-model="vm.community">
                 </select>
                 <label for="wyborOKW" style="width: 120px; display: inline-block">Wybierz obwód</label>
-                <select id="wyborOKW" style="width: 300px" ng-options="'Obwód nr '+p.nrObwodu+': '+p.siedzibaKomisjiObwodowej for p in vm.pollingStationsData" ng-model="vm.pollingStation"></select>
+                <select id="wyborOKW" style="width: 300px" ng-options="'Obwód nr '+p.nrObwodu+': '+p.siedzibaKomisjiObwodowej for p in vm.komisjasData" ng-model="vm.komisja"></select>
             </div>
             <br/>
             <button type="button" ng-click="vm.loadMockFormData()">Wypełnij formularz przykładowymi danymi</button>
@@ -37,31 +37,31 @@
                 <td colspan="2" style="text-align: right">Kod terytorialny gminy
                     <br/>(dzielnicy w m. st. Warszawie)</td>
                 <td>
-                    <input type="text" id="kodGminy" name="kodGminy" style="width:50px" ng-value="vm.pollingStation.kodGminy" readonly>
+                    <input type="text" id="kodGminy" name="kodGminy" style="width:50px" ng-model="vm.formData.komisja.kodTerytorialnyGminy" readonly>
                 </td>
                 <td colspan="2" style="text-align:right">Nr obwodu głosowania</td>
                 <td>
-                    <input type="text" id="nrObwodu" name="nrObwodu" ng-value="vm.pollingStation.nrObwodu" readonly>
+                    <input type="text" id="nrObwodu" name="nrObwodu" ng-value="vm.formData.komisja.numerObwoduGlosowania" readonly>
                 </td>
             </tr>
             <tr>
                 <td colspan="2" style="text-align: right">Siedziba Obwodowej Komisji Wyborczej (adres)</td>
                 <td colspan="4">
-                    <input type="text" id="adresOKW" name="adresOKW" style="width: 493px" ng-value="vm.pollingStation.siedzibaKomisjiObwodowej" readonly>
+                    <input type="text" id="adresOKW" name="adresOKW" style="width: 493px" ng-value="vm.formData.komisja.siedzibaObwodowejKomisjiWyborczej" readonly>
                 </td>
             </tr>
             <tr>
                 <td style="text-align: right">Gmina/Dzielnica</td>
                 <td>
-                    <input type="text" id="gmina" name="gmina" style="width: 130px" ng-value="vm.pollingStation.gmina" readonly>
+                    <input type="text" id="gmina" name="gmina" style="width: 130px" ng-value="vm.formData.komisja.gminaDzielnica" readonly>
                 </td>
                 <td style="text-align: right">Powiat</td>
                 <td>
-                    <input type="text" id="powiat" name="powiat" style="width: 130px" ng-value="vm.pollingStation.powiat" readonly>
+                    <input type="text" id="powiat" name="powiat" style="width: 130px" ng-value="vm.formData.komisja.powiat" readonly>
                 </td>
                 <td style="text-align: right">Województwo</td>
                 <td>
-                    <input type="text" id="wojewodztwo" name="wojewodztwo" style="width: 180px" ng-value="vm.pollingStation.wojewodztwo" readonly>
+                    <input type="text" id="wojewodztwo" name="wojewodztwo" style="width: 180px" ng-value="vm.formData.komisja.wojewodztwo" readonly>
                 </td>
             </tr>
         </table>
@@ -102,7 +102,7 @@
                 <td class="lp">4.</td>
                 <td>Liczba wyborców, którym wydano karty do głosowania</td>
                 <td>
-                    <input type="number" ng-model="vm.formData.rozliczenieKart.pole4" positive-int president-hard-error-p1 />
+                    <input type="text" ng-model="vm.formData.rozliczenieKart.pole4" positive-int president-hard-error-p1 />
                 </td>
             </tr>
             <tr class="uwaga">
@@ -247,10 +247,10 @@
             <tr ng-repeat="c in vm.candidates">
                 <td class="lp">{{c.positionOnList}}.</td>
                 <td>
-                    <input type="text" style="width: 300px" ng-value="c.firstName + ' ' + c.lastName" readonly>
+                    <input type="text" style="width: 300px" ng-model="vm.formData.wynikiGlosowania.pole14[c.positionOnList - 1].imionaINazwisko" ng-value="c.firstName + ' ' + c.lastName" readonly>
                 </td>
                 <td>
-                    <input type="text" ng-value="vm.formData.wynikiGlosowania.pole14[{{c.positionOnList - 1}}].sumaGlosowWaznych">
+                    <input type="text" ng-model="vm.formData.wynikiGlosowania.pole14[c.positionOnList - 1].sumaGlosowWaznych">
                 </td>
             </tr>
             <tr>
@@ -348,19 +348,19 @@
                 <th>Obecność</th>
                 <th>Kasuj</th>
             </tr>
-            <tr ng-repeat="member in vm.formData.commissionMembers">
+            <tr ng-repeat="member in vm.formData.czlonkowieKomisji">
                 <td>{{$index + 1}}</td>
                 <td style="width:150px;">
-                    <input type="text" placeholder="Imię 1" ng-model="member.name1" />
+                    <input type="text" placeholder="Imię 1" ng-model="member.imie1" />
                 </td>
                 <td>
-                    <input type="text" placeholder="Imię 2" ng-model="member.name2" />
+                    <input type="text" placeholder="Imię 2" ng-model="member.imie2" />
                 </td>
                 <td>
-                    <input type="text" placeholder="Nazwisko" ng-model="member.surname" />
+                    <input type="text" placeholder="Nazwisko" ng-model="member.nazwisko" />
                 </td>
                 <td>
-                    <select ng-options="option as option for option in vm.commissionMemberRoles" ng-model="member.role">
+                    <select ng-options="option as option for option in vm.commissionMemberRoles" ng-model="member.funkcja">
 
                     </select>
                 </td>

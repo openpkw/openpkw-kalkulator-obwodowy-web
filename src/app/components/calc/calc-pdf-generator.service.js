@@ -7,6 +7,7 @@
     function CalcPdfGeneratorService($http, $window) {
 
         this.generatePdf = function(pdfData) {
+            console.log(pdfData);
             this.sendFormData(pdfData)
                 .then(this.openPdfWindow, this.getPdfDataFromServerError);
         };
