@@ -39,7 +39,8 @@
         initialize();
 
         function printPdf() {
-            CalcPdfGeneratorService.generatePdf(vm.formData);
+            vm.request = {templateName:'PdfTemplate', formData:vm.formData};
+            CalcPdfGeneratorService.generatePdf(vm.request);
         }
 
         function selectFirstVoivodship() {
