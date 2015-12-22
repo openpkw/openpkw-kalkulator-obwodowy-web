@@ -13,7 +13,7 @@
 ```npm run server-dev``` - serwer deweloperski [http://localhost:9000](http://localhost:9000), obsługuje livereload (przeglądarka sama się odświeża gdy edytujemy i zapisujemy pliki), uruchamia się szybciej niż. Przed uruchomieniem nie trzeba budować aplikacji ponieważ serwer działa na plikach z katalogu ```src``<br/>
 
 ### Środowiska
-* Continuous Delivery: (http://dobromir.openpkw.pl:8080/view/openpkw-kalkulator-obwodowy-web%20pipeline/)
+* Continuous Delivery: (http://cypisek.open-pkw.pl:8080/view/openpkw-kalkulator-obwodowy-web%20pipeline/)
 * DEV: (http://dobromir.openpkw.pl/)
 * UAT: -
 * PROD: -
