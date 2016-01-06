@@ -9,7 +9,9 @@ var config = {
 };
 
 try {
-    var scpPrivateKeyPath = (process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE) + '/.ssh/openpkw-jenkins-cd.pem'
+    var homeDir = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
+    console.info('[INFO] User home directory: ' + homeDir);
+    var scpPrivateKeyPath = homeDir + '/.ssh/openpkw-jenkins-cd.pem';
     var scpPrivateKey = require('fs').readFileSync(scpPrivateKeyPath);
 } catch (err) {
     if (err.code !== 'ENOENT') {
@@ -21,7 +23,7 @@ try {
     // Handle a file-not-found error
 }
 
-console.info("[INFO] SCP private key successfully loaded from " + scpPrivateKeyPath);
+console.info('[INFO] SCP private key successfully loaded from ' + scpPrivateKeyPath);
 
 module.exports = function(grunt) {
 
