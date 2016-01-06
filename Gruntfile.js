@@ -9,17 +9,19 @@ var config = {
 };
 
 try {
-    var scpPrivateKey = require('fs').readFileSync((process.env.HOME ||
-        process.env.HOMEPATH || process.env.USERPROFILE) + '/.ssh/openpkw-jenkins-cd.pem');
+    var scpPrivateKeyPath = (process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE) + '/.ssh/openpkw-jenkins-cd.pem'
+    var scpPrivateKey = require('fs').readFileSync(scpPrivateKeyPath);
 } catch (err) {
     if (err.code !== 'ENOENT') {
         throw err;
     }
 
-    console.warn('[WARNING!!] scpPrivateKey not found, deploy task has not been registered');
+    console.warn('[WARNING] SCP private key not found. Deploy task has not been registered.');
     scpPrivateKey = false;
     // Handle a file-not-found error
 }
+
+console.info("[INFO] SCP private key successfully loaded from " + scpPrivateKeyPath);
 
 module.exports = function(grunt) {
 
@@ -313,7 +315,7 @@ module.exports = function(grunt) {
 
         scp: {
             options: {
-                host: 'localhost',
+                host: config.backendProxy,
                 port: 22,
                 username: 'openpkw-cd',
                 privateKey: scpPrivateKey,
