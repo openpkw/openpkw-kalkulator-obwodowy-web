@@ -12,6 +12,18 @@
   ```npm run server-prod``` - startuje serwer produkcyjny [http://localhost:8088](http://localhost:8088), może być również używany przez osoby chcące tylko pooglądać aplikację<br/>
 ```npm run server-dev``` - serwer deweloperski [http://localhost:9000](http://localhost:9000), obsługuje livereload (przeglądarka sama się odświeża gdy edytujemy i zapisujemy pliki), uruchamia się szybciej niż. Przed uruchomieniem nie trzeba budować aplikacji ponieważ serwer działa na plikach z katalogu ```src``<br/>
 
+### Rozpraszanie na serwerach OpenPKW
+
+Do rozpraszania na serwerach OpenPKW potrzebny jest klucz prywatny, który zostal dodany do authorized_keys na serwerze.
+
+Przy pomocy SCP:
+
+```scp -ri ~/.ssh/openpkw-jenkins-cd.pem . openpkw-cd@dobromir.openpkw.pl:/var/www/html/openpkw-kalkulator-obwodowy-web/```
+
+Przy pomocy grunta (czasem nie dziala):
+
+```grunt deploy```
+
 ### Środowiska
 * Continuous Delivery: (http://cypisek.open-pkw.pl:8080/view/openpkw-kalkulator-obwodowy-web%20pipeline/)
 * DEV: (http://dobromir.openpkw.pl/)
