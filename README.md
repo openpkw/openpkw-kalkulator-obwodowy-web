@@ -18,6 +18,7 @@ Do rozpraszania na serwerach OpenPKW potrzebny jest klucz prywatny, który zosta
 
 Przy pomocy SCP:
 
+```cd dist```<br/>
 ```scp -ri ~/.ssh/openpkw-jenkins-cd.pem . openpkw-cd@dobromir.openpkw.pl:/var/www/html/openpkw-kalkulator-obwodowy-web/```
 
 Przy pomocy grunta (czasem nie dziala):
