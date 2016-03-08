@@ -316,14 +316,14 @@ module.exports = function(grunt) {
         },
 
         scp: {
-            options: {
-                host: config.backendProxy,
-                port: 22,
-                username: 'openpkw-cd',
-                privateKey: scpPrivateKey,
-                tryKeyboard: true
-            },
-            dist: {
+            test: {
+                options: {
+                    host: 'rumcajs.open-pkw.pl',
+                    port: 1022,
+                    username: 'openpkw-cd',
+                    privateKey: scpPrivateKey,
+                    tryKeyboard: true
+                },
                 files: [{
                     cwd: './dist',
                     src: '**/*',
@@ -331,6 +331,21 @@ module.exports = function(grunt) {
                     dest: '/var/www/html/openpkw-kalkulator-obwodowy-web'
                 }]
             },
+            uat : {
+                options: {
+                    host: 'dobromir.openpkw.pl',
+                    port: 22,
+                    username: 'openpkw-cd',
+                    privateKey: scpPrivateKey,
+                    tryKeyboard: true
+                },
+                files: [{
+                    cwd: './dist',
+                    src: '**/*',
+                    filter: 'isFile',
+                    dest: '/var/www/html/openpkw-kalkulator-obwodowy-web'
+                }]
+            }
         }
     });
 
@@ -346,7 +361,7 @@ module.exports = function(grunt) {
     grunt.registerTask('test', ['jshint', 'jscs', 'karma:unit']);
 
     if (scpPrivateKey !== false) {
-        grunt.registerTask('deploy', ['scp']);
+        grunt.registerTask('deploy-test', ['scp:test']);
+        grunt.registerTask('deploy-uat', ['scp:uat']);
     }
-
 };
