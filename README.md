@@ -26,10 +26,11 @@ Przy pomocy grunta (czasem nie dziala):
 ```grunt deploy```
 
 ### Środowiska
-* Continuous Delivery: (http://cypisek.open-pkw.pl:8080/view/openpkw-kalkulator-obwodowy-web%20pipeline/)
-* DEV: (http://dobromir.openpkw.pl/)
-* UAT: -
-* PROD: -
+* Continuous Delivery: (http://cypisek.openpkw.pl:8080/view/OpenPKW%20Kalkulator%20Obowodowy/)
+* TEST: (http://rumcajs.openpkw.pl/)
+* UAT: (http://dobromir.openpkw.pl/) (obecnie nie działa)
+* STAGE: jeszcze nie ma
+* PROD: jeszcze nie ma
 
 ### Informacje
 Na serwerach skonfigurowane jest proxy które przekierowuje requesty do backendu. Jego konfiguracja jest w pliku *Gruntfile.js* w sekcji ```proxies:```
