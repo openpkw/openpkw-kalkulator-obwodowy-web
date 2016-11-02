@@ -318,7 +318,7 @@ module.exports = function(grunt) {
         scp: {
             test: {
                 options: {
-                    host: 'rumcajs.open-pkw.pl',
+                    host: 'rumcajs.openpkw.pl',
                     port: 1022,
                     username: 'openpkw-cd',
                     privateKey: scpPrivateKey,
